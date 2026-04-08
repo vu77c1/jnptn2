@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+
+<!-- MOBILE TO HƠN -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3">
+
+<title>JLPT N2 7 Từ vựng, ngữ pháp 7/2025</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body { 
+  background:#f5f7fb; 
+  font-size:18px;
+}
+
+/* number */
+.number{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  border:2px solid #333;
+  width:44px;
+  height:44px;
+  border-radius:10px;
+  font-weight:bold;
+  margin-right:10px;
+  font-size:18px;
+}
+
+/* card */
+.card-q{
+  background:#fff;
+  border-radius:14px;
+  padding:18px;
+  margin-bottom:20px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.06);
+}
+
+/* option */
+.option{
+  cursor:pointer;
+  padding:14px;
+  border-radius:10px;
+  border:1px solid #ddd;
+  transition:0.2s;
+  font-size:18px;
+}
+
+.option:hover{
+  background:#f1f5ff;
+  border-color:#0d6efd;
+}
+
+.option input{
+  margin-right:10px;
+  transform: scale(1.5);
+}
+
+/* result */
+.correct{
+  background:#e8f7ee;
+  border-color:green;
+  color:green;
+  font-weight:bold;
+}
+
+.wrong{
+  background:#fdeaea;
+  border-color:red;
+  color:red;
+}
+
+/* highlight */
+.highlight{
+  border-bottom:2px solid #333;
+  font-weight:bold;
+  position:relative;
+}
+
+.highlight:hover::after{
+  content:attr(data-mean);
+  position:absolute;
+  top:-35px;
+  left:0;
+  background:#000;
+  color:#fff;
+  padding:4px 8px;
+  font-size:12px;
+  border-radius:5px;
+  white-space:nowrap;
+}
+
+/* sentence */
+.sentence{
+  position:relative;
+  margin-bottom:12px;
+  line-height:1.7;
+  font-size:18px;
+}
+
+.sentence:hover::after{
+  content:attr(data-vi);
+  position:absolute;
+  top:100%;
+  left:0;
+  background:#0d6efd;
+  color:#fff;
+  padding:6px 10px;
+  font-size:13px;
+  border-radius:6px;
+  white-space:nowrap;
+  z-index:10;
+}
+
+/* reading */
+.reading{
+  background:#fff;
+  padding:18px;
+  border-radius:12px;
+  line-height:1.8;
+  margin-bottom:20px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* button */
+button{
+  font-size:18px !important;
+  padding:12px 20px !important;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container py-4">
+
+<h3 class="mb-4 text-center">JLPT N2 - 7/2025</h3>
+
+<div id="quiz"></div>
+
+<div class="text-center mt-4">
+  <button class="btn btn-success" onclick="check()">Xem đáp án</button>
+  <button class="btn btn-secondary ms-2" onclick="resetAll()">Làm lại</button>
+</div>
+
+</div>
+
+<script>
+
+// ===== DATA GIỮ NGUYÊN =====
+const data = [
+  {
+  section: "問題1 ___の言葉の読み方として最もよいものを選びなさい｡",
+  sentence: "辛い食べ物は好きではありません。",
+  vi: "Tôi không thích đồ ăn cay",
+  word: "辛い",
+  mean: "cay",
+  options: ["あまい","からい","にがい","しぶい"],
+  correct: 1
+},
+{
+  sentence: "私の友人は刑事です。",
+  vi: "Bạn tôi là cảnh sát hình sự",
+  word: "刑事",
+  mean: "cảnh sát hình sự",
+  options: ["けんじ","かんじ","けいじ","かいじ"],
+  correct: 2
+},
+{
+  sentence: "素晴らしい才能を発揮した。",
+  vi: "Đã phát huy tài năng tuyệt vời",
+  word: "才能",
+  mean: "tài năng",
+  options: ["ぜいのう","ざいのう","せいのう","さいのう"],
+  correct: 3
+},
+{
+  sentence: "夕方になって、ようやく風が収まった。",
+  vi: "Đến chiều thì cuối cùng gió cũng dịu lại",
+  word: "収まった",
+  mean: "lắng xuống",
+  options: ["さだまった","しずまった","おさまった","やすまった"],
+  correct: 2
+},
+{
+  sentence: "毎朝6時に起床して、少し運動をしている。",
+  vi: "Mỗi sáng 6h thức dậy và tập thể dục nhẹ",
+  word: "起床",
+  mean: "thức dậy",
+  options: ["きしょう","ぎしょう","きしょ","ぎし"],
+  correct: 0
+},
+
+{
+  section: "問題2 ___の言葉を漢字で書くとき、最もよいものを選びなさい｡",
+  sentence: "この時期は風邪をひく人が増えるけいこうがある。",
+  vi: "Thời điểm này có xu hướng nhiều người bị cảm",
+  word: "けいこう",
+  mean: "xu hướng",
+  options: ["傾向","頃向","傾高","頃高"],
+  correct: 0
+},
+{
+  sentence: "このタオルはまだしめっている。",
+  vi: "Cái khăn này vẫn còn ẩm",
+  word: "しめっている",
+  mean: "ẩm ướt",
+  options: ["渡って","温って","汗って","湿って"],
+  correct: 3
+},
+{
+  sentence: "もう少し力を入れてけずってください。",
+  vi: "Hãy dùng lực thêm chút và gọt đi",
+  word: "けずって",
+  mean: "gọt / cạo",
+  options: ["絞って","削って","握って","掘って"],
+  correct: 1
+},
+{
+  sentence: "このしせつには、駐車場はありません。",
+  vi: "Cơ sở này không có bãi đỗ xe",
+  word: "しせつ",
+  mean: "cơ sở",
+  options: ["支援","施接","支設","施設"],
+  correct: 3
+},
+{
+  sentence: "大勢の人がしさつに訪れた。",
+  vi: "Nhiều người đã đến tham quan",
+  word: "しさつ",
+  mean: "tham quan / thị sát",
+  options: ["診察","観察","視察","診祭"],
+  correct: 2
+},
+{
+  section: "問題3 （ ）に入れるのに最もよいものを選びなさい｡",
+  sentence: "この魚は骨が多くて食べ（）。",
+  vi: "Con cá này nhiều xương nên khó ăn",
+  word: "（ ）",
+  mean: "điền từ phù hợp",
+  options: ["づらい","いたい","おそい","ぐるしい"],
+  correct: 0
+},
+{
+  sentence: "今回の事故は（ ）条件が重なって起きた。",
+  vi: "Tai nạn lần này xảy ra do nhiều điều kiện xấu chồng lên nhau",
+  word: "（ ）",
+  mean: "điền từ",
+  options: ["損","劣","危","悪"],
+  correct: 3
+},
+{
+  sentence: "教師たちの間で、新たな教育（ ）が注目されている。",
+  vi: "Trong giới giáo viên, lý thuyết giáo dục mới đang được chú ý",
+  word: "（ ）",
+  mean: "điền từ",
+  options: ["則","理","論","規"],
+  correct: 2
+},
+
+
+{
+  section: "問題4 （ ）に入れるのに最もよいものを選びなさい｡",
+  sentence: "息子はみんなの前で、悪いことはもう絶対にしないと（）。",
+  vi: "Con trai tôi trước mọi người đã thề sẽ không làm điều xấu nữa",
+  word: "（ ）",
+  mean: "điền từ",
+  options: ["論じた","命じた","誓った","迫った"],
+  correct: 2
+},
+{
+  sentence: "工事のため、（ ）電気が止まることがあります。",
+  vi: "Do thi công nên có lúc điện bị ngắt tạm thời",
+  word: "（ ）",
+  mean: "điền từ",
+  options: ["簡潔に","一時的に","手軽に","不完全に"],
+  correct: 1
+},
+{
+  sentence: "あの人物が今回の事件に（ ）していたのは間違いない。",
+  vi: "Không nghi ngờ gì người đó có liên quan đến vụ việc lần này",
+  word: "（ ）",
+  mean: "điền từ",
+  options: ["参列","加入","登場","関与"],
+  correct: 3
+},
+{
+  sentence: "油で汚れたフライパンは、（ ）してとても洗いにくいです。",
+  vi: "Chảo bị dính dầu nên rất khó rửa",
+  word: "（ ）",
+  mean: "điền từ",
+  options: ["べたべた","かさかさ","じめじめ","ちくちく"],
+  correct: 0
+},
+{
+  sentence: "サッカーで手を使うのは禁止されていて、もし使ったら（ ）になる。",
+  vi: "Trong bóng đá dùng tay là bị phạm lỗi",
+  word: "（ ）",
+  mean: "điền từ",
+  options: ["反則","違法","非常識","不都合"],
+  correct: 0
+},
+{
+  sentence: "虫が飛んできたので、手に持っていた帽子を振って遠くに（）。",
+  vi: "Vì có côn trùng bay tới nên tôi vung mũ để xua nó đi xa",
+  word: "（ ）",
+  mean: "điền từ",
+  options: ["連れ出した","締め出した","取り払った","追い払った"],
+  correct: 3
+},
+{
+  sentence: "社会の変化に合わせて、働き方や休日の過ごし方など人々が選ぶ生活の（ ）も変わってきた。",
+  vi: "Cùng với thay đổi xã hội, lối sống con người cũng thay đổi",
+  word: "（ ）",
+  mean: "điền từ",
+  options: ["ポーズ","スタイル","ブランド","シリーズ"],
+  correct: 1
+},
+
+{
+  section: "問題5 ___の言葉に意味が最も近いものを選びなさい｡",
+  sentence: "昨夜、家の近くで妙な事件が起こった。",
+  vi: "Tối qua gần nhà xảy ra một vụ việc kỳ lạ",
+  word: "妙な",
+  mean: "kỳ lạ",
+  options: ["恐ろしい","不思議な","悲しい","重大な"],
+  correct: 1
+},
+{
+  sentence: "鈴木さんは相当迷っているらしい。",
+  vi: "Có vẻ Suzuki đang rất phân vân",
+  word: "相当",
+  mean: "khá / rất",
+  options: ["いろいろ","まだ","やっぱり","かなり"],
+  correct: 3
+},
+{
+  sentence: "教室がやかましくて、勉強に集中できない。",
+  vi: "Lớp học ồn ào nên không thể tập trung học",
+  word: "やかましくて",
+  mean: "ồn ào",
+  options: ["うるさくて","汚くて","暑くて","暗くて"],
+  correct: 0
+},
+{
+  sentence: "中山さんは帰省しています。",
+  vi: "Nakayama đã về quê",
+  word: "帰省",
+  mean: "về quê",
+  options: ["出張から戻って","部屋に戻って","ふるさとに戻って","休暇から戻って"],
+  correct: 2
+},
+{
+  sentence: "林さんは、いきなり振り向いた。",
+  vi: "Hayashi đột nhiên quay lại",
+  word: "いきなり",
+  mean: "đột nhiên",
+  options: ["やっと","一度","突然","ゆっくり"],
+  correct: 2
+},
+
+{
+  section: "問題6 次の言葉の使い方として最も近いものを選びなさい｡",
+  sentence: "潰す",
+  vi: "làm bẹp / nghiền",
+  word: "潰す",
+  mean: "つぶす",
+  options: [
+    "ガラスのコップを落として、潰してしまった｡",
+    "空き缶は、潰してからごみ箱に入れてください｡",
+    "洗濯物が乾いたので、きれいに潰してたんすにしまった｡",
+    "いらなくなった書類をひりひりと細かく潰して捨てた。"
+  ],
+  correct: 1
+},
+{
+  sentence: "粗末",
+  vi: "khiêm tốn / sơ sài",
+  word: "粗末",
+  mean: "そまつ",
+  options: [
+    "昔の学校給食は、おかずの種類も少なく、今と比べると粗末なものだった｡",
+    "言葉遣いが粗末だったので、友達を怒らせてしまった｡",
+    "風邪をひいてしまい、声が粗末で上手に歌えない｡",
+    "お金がないので、友人がくれた古くて機能の粗末なパソコンを使っている。"
+  ],
+  correct: 0
+},
+{
+  sentence: "熱中",
+  vi: "say mê / hăng say",
+  word: "熱中",
+  mean: "ねっちゅう",
+  options: [
+    "ごみ処理の問題に関して、市民から担当者に批判が熱中した｡",
+    "学生のときは野球に熱中していて、毎日遅くまで練習していた｡",
+    "うちの娘はこの服に熱中していて、毎日こればがり着いたがります｡",
+    "オリンピックの期間中、世界の関心が開催国に熱中している。"
+  ],
+  correct: 1
+},
+{
+  sentence: "和やかな",
+  vi: "hòa nhã / ôn hòa",
+  word: "和やかな",
+  mean: "なごやかな",
+  options: [
+    "火事や地震のときは、慌てずに和やかな行動を取ることが重要だ｡",
+    "この地方は、一年中気候が和やかなので暮らしやすい｡",
+    "この店のスープは、和やかな味で飲むとほっとする｡",
+    "代表者同士の話し合いは、和やかな雰囲気で行われた。"
+  ],
+  correct: 3
+},
+{
+  sentence: "愛着",
+  vi: "tình cảm gắn bó",
+  word: "愛着",
+  mean: "あいちゃく",
+  options: [
+    "いろいろな靴をはいてみたが、どれも愛着がなかったので買わなかった｡",
+    "スーパーで、地元の人が愛着を入れて育てた野菜を買った｡",
+    "この机はもう使っていないのだが、愛着があってなかなか捨てられない｡",
+    "弟は教師になるという夢に愛着を持ち、教育学部に進学した。"
+  ],
+  correct: 2
+},
+
+
+{
+  section: "問題7 次の文の（ ）に入れるのに最もよいものを選びなさい｡",
+  sentence: "南市は、市民ホールを建設する（ ）、周辺の住民に対して説明会を行う予定だ｡",
+  word: "（ ）",
+  vi: "みなみしは、しみんほーるをけんせつする（ ）、しゅうへんのじゅうみんにたいしてせつめいかいをおこなうよていだ｡",
+  mean: "Khi xây dựng hội trường công cộng, dự kiến sẽ tổ chức buổi giải thích cho cư dân xung quanh",
+  options: ["とすると","にあたって","ものなら","わりには"],
+  correct: 1
+},
+{
+  sentence: "彼女は、まだ小学生（ ）、すでに数々の国際的なピアノコンクールで優勝している｡",
+  word: "（ ）",
+  vi: "かのじょは、まだしょうがくせい（ ）、すでにかずかずのこくさいてきなぴあのこんくーるでゆうしょうしている｡",
+  mean: "Cô ấy vẫn còn là học sinh tiểu học, nhưng đã giành chiến thắng ở nhiều cuộc thi piano quốc tế",
+  options: ["こそ","すら","ながらも","どころか"],
+  correct: 2
+},
+{
+  sentence: "仕事ができると言われる人は、そうでない人と比べて（ ）何が違うのだろうか｡",
+  word: "（ ）",
+  vi: "しごとができるといわれるひとは、そうでないひととくらべて（ ）なにがちがうのだろうか｡",
+  mean: "Người được cho là giỏi công việc, so với người khác, điều gì thực sự khác biệt?",
+  options: ["いったい","おそらく","かえって","どうしても"],
+  correct: 0
+},
+{
+  sentence: "館の人：「いらっしゃいませ。本日は森川旅館に（ ）、ありがとうございます。」",
+  word: "（ ）",
+  vi: "かんのひと：『いらっしゃいませ。ほんじつはもりかわりょかんに（ ）、ありがとうございます。』",
+  mean: "Nhân viên khách sạn: 'Xin cảm ơn vì hôm nay đã đến khách sạn Morikawa'",
+  options: ["伺いまして","お越しになり","参りまして","おいでくださり"],
+  correct: 3
+},
+{
+  sentence: "父は、健康のことを考えてなるべく（ ）、会社から家まで１時間かけて歩いて帰って来ることもある｡",
+  word: "（ ）",
+  vi: "ちちは、けんこうのことをかんがえてなるべく（ ）、かいしゃからいえまでいちじかんかけてあるいてかえってくることもある｡",
+  mean: "Bố tôi vì sức khỏe nên cố gắng đi bộ từ công ty về nhà mất khoảng 1 giờ",
+  options: ["歩こうとしそうで","歩こうとすることで","歩くようにしているらしい","歩くようにしていた"],
+  correct: 2
+},
+{
+  sentence: "図書館で本を借りたのだが、最後まで（ ）返却期限が来そうだ｡",
+  word: "（ ）",
+  vi: "としょかんでほんをかりたのだが、さいごまで（ ）へんきゃくきげんがきそうだ｡",
+  mean: "Mượn sách ở thư viện nhưng chưa đọc xong thì hạn trả sách sắp đến",
+  options: ["読み終わるより","読み終わらないうちに","読んでしまうまで","読んでしまわなければ"],
+  correct: 1
+},
+{
+  sentence: "最近成績が伸びないのて、このままの勉強方法（ ）先生に相談してみた｡",
+  word: "（ ）",
+  vi: "さいきんせいせきがのびないので、このままのべんきょうほうほう（ ）せんせいにそうだんしてみた｡",
+  mean: "Gần đây điểm số không cải thiện, tôi đã hỏi thầy xem phương pháp học này có ổn không",
+  options: ["でいいことを","ならいいことを","でいいのかどうか","ならいいのかどうか"],
+  correct: 2
+},
+{
+  sentence: "環境問題への意識が世界的に高まってきており、メーカー間の電気自動車の開発競争は激しくなる（ ）｡",
+  word: "（ ）",
+  vi: "かんきょうもんだいへのいしきがせかいてきにたかまってきており、めーかーかんのでんきじどうしゃのかいはつきょうそうははげしくなる（ ）｡",
+  mean: "Ý thức về vấn đề môi trường tăng trên toàn cầu, cạnh tranh phát triển xe điện giữa các hãng càng trở nên gay gắt",
+  options: ["一方だ","次第だ","ほどだ","べきだ"],
+  correct: 0
+},
+{
+  sentence: "週末、山に登った。ても暑い日だったが、頂上の近くは気温が低くて寒い（ ）｡",
+  word: "（ ）",
+  vi: "しゅうまつ、やまにのぼった。てもあついひだったが、ちょうじょうのちかくはきおんがひくくてさむい（ ）｡",
+  mean: "Cuối tuần leo núi, trời nắng nóng nhưng gần đỉnh núi nhiệt độ thấp nên rất lạnh",
+  options: ["とよかった","に違いなかった","かのようだった","くらいだった"],
+  correct: 3
+},
+{
+  sentence: "満員電車に乗るのは嫌だが、ほかに手段がないので、（ ）｡",
+  word: "（ ）",
+  vi: "まんいんでんしゃにのるのはいやだが、ほかにしゅだんがないので、（ ）｡",
+  mean: "Ghét đi tàu điện đông đúc nhưng không còn cách nào khác nên đành phải đi",
+  options: ["乗るものではない","乗りようがない","乗らないわけにはいかない","乗らなくてもかまわない"],
+  correct: 2
+},
+{
+  sentence: "司会：「薬はどうして水以外の飲み物で飲んではいけないんでしょうか。」医者：「それは、お茶やジュースで飲むと薬の効きめに影響が出る（ ）。」",
+  word: "（ ）",
+  vi: "しかい：「くすりはどうしてみずいがいののみものでのんではいけないんでしょうか。」いしゃ：「それは、おちゃやじゅーすでのむとくすりのききめにえいきょうがでる（ ）。」",
+  mean: "MC: 'Tại sao không uống thuốc với nước khác?' - Bác sĩ: 'Vì uống với trà hay nước ngọt sẽ ảnh hưởng đến tác dụng của thuốc'",
+  options: ["ことがあるためです","ことにするためです","ことがあるはずです","ことにするはずです"],
+  correct: 0
+},
+{
+  sentence: "私は猫アレルギーで、猫に触ると体がかゆくなってしまうのだか、猫は好きなので見るとつい（ ）｡",
+  word: "（ ）",
+  vi: "わたしはねこあれるるぎーで、ねこにさわるとからだがかゆくなってしまうのだが、ねこはすきなのでみるとつい（ ）｡",
+  mean: "Tôi bị dị ứng mèo, nhưng thích mèo nên cứ thấy là muốn chạm vào",
+  options: ["触ってみたがっている","触ってみたくなってしまう","触ってみてほしがっている","触ってみてほしくなってしまう"],
+  correct: 1
+},
+
+{
+  section: "問題8 次の文の_★_に入る最もよいものを選びなさい｡",
+  sentence: "このパン屋では、原料の___ ___ _★_ ___ 一つ一つ丁寧にパンを作っているそうだ｡",
+  word: "_★_",
+  vi: "このぱんやでは、げんりょうの___ ___ _★_ ___ ひとつひとつていねいにぱんをつくっているそうだ｡",
+  mean: "Nghe nói ở cửa hàng bánh này, từng nguyên liệu đều được chú trọng để làm bánh một cách cẩn thận",
+  options: ["こだわって","小麦粉は","水にまで","もちろん"],
+  correct: 0
+},
+{
+  sentence: "昨日は、梅雨の___ ___ _★_ ___ 、久しぶりに洗濯物を外に干すことができた｡",
+  word: "_★_",
+  vi: "きのうは、つゆの___ ___ _★_ ___、ひさしぶりにせんたくものをそとにほすことができた｡",
+  mean: "Hôm qua, trong thời tiết mùa mưa, cuối cùng cũng có thể phơi quần áo ngoài trời sau một thời gian dài",
+  options: ["いい天気で","時期にしては","この","珍しく"],
+  correct: 3
+},
+{
+  sentence: "今回のセミナーの開催日が人の___ ___ _★_ ___ 参加者が集まったのは大成功といえる｡",
+  word: "_★_",
+  vi: "こんかいのせみなーのかいさいびがひとの___ ___ _★_ ___さんかしゃがあつまったのはだいせいこうといえる｡",
+  mean: "Ngày tổ chức seminar lần này là ngày khó để mọi người tham gia, nhưng vẫn thu hút được nhiều người, có thể nói là rất thành công",
+  options: ["集まりにくい","ことを考えると","平日だった","200名もの"],
+  correct: 1
+},
+{
+  sentence: "人には___ ___ _★_ ___ 気づくのは難しい｡",
+  word: "_★_",
+  vi: "ひとには___ ___ _★_ ___ きづくのはむずかしい｡",
+  mean: "Đối với mỗi người, điều gì đó chỉ riêng họ mới nhận ra thì khó thấy",
+  options: ["良さがあるというが","誰にでも","その人にしかない","自分でそれに"],
+  correct: 2
+},
+{
+  sentence: "昨日の晩、目覚まし時計をセットのを忘れてしまい、今朝は寝坊してしまった。それでも___ ___ _★_ ___ からだ｡",
+  word: "_★_",
+  vi: "きのうのばん、めざましどけいをせっとのをわすれてしまい、けさはねぼうしてしまった。それでも___ ___ _★_ ___ からだ｡",
+  mean: "Tối qua quên không đặt đồng hồ báo thức, sáng nay ngủ quên, nhưng vẫn không muộn làm việc là nhờ…",
+  options: ["のは","たまたまかかってきた","電話に起こされた","遅刻をせずに済んだ"],
+  correct: 3
+},
+
+{
+    section: "問題9 次の文章を読んで、文章全体の内容を考えて、（48）から（51）の中に入る最もよいものを選びなさい｡",
+  word: "利用されている",
+  vi: "sử dụng",
+  mean: "りようされている",
+  options: ["利用させてほしい","利用されている","利用してくれている","利用してもいい"],
+  correct: 1
+},
+{
+  word: "少なくなったのだ",
+  vi: "giảm đi",
+  mean: "すくなくなったのだ",
+  options: ["少なかったはずだ","少なくなったのだ","少なくないという","少なくなりかねない"],
+  correct: 1
+},
+{
+  word: "このような",
+  vi: "như thế này",
+  mean: "このような",
+  options: ["このような","その","次の","ある"],
+  correct: 0
+},
+{
+  word: "をはじめ",
+  vi: "bắt đầu từ",
+  mean: "をはじめ",
+  options: ["において","に限らず","を中心に","をはじめ"],
+  correct: 3
+}
+];
+
+// ===== FUNCTIONS =====
+
+function highlight(text, word, mean){
+  if(!text) return "";
+  return text.replace(word, `<span class="highlight" data-mean="${mean}">${word}</span>`);
+}
+
+function render(){
+  let html = "";
+  let currentSection = "";
+
+  data.forEach((q,i)=>{
+    let number = i+1;
+
+    if(q.section && q.section !== currentSection){
+      currentSection = q.section;
+      html += `<h5 class="mt-4 mb-3">${q.section}</h5>`;
+    }
+
+    // reading 問題9
+    if(q.section && q.section.includes("問題9") && !html.includes("reading9")){
+      html += `
+      <div id="reading9" class="reading">
+      <b>以下は、留学生の作文である。</b><br><br>
+      
+            <b>高齢者外出支援</b><br><br>
+                  <b>フク ヒョンミ</b><br><br>
+      現在、日本では65歳以上の高齢者が人口の約3割に達するほど高齢化が進んでいる。そんな
+日本で今、高齢者の体と心の健康のために外出を支援するサービスの重要性が増しているそ
+うだ。このサービスには、どのような効果があるのだろうか｡
+外出を支援するサービスは、大きく分けて二つある。まず一つ目は、移動をサポートする
+サービスで、主に車での送迎サービスだ、車の運転が困難な人や、最寄りのバス停や駅まで
+歩くことが負担になる人に（ 48 ）。二つ目は、外出の機会を提供するサービスだ。用事が
+ないから外出しないという高齢者は（ 49 ）。そのため、商店街での割引を実施したり、集
+まっておしゃべりができる会を開いたりするなど、外出の目的や場所を提供している。これ
+らのサービスにより、外出の回数が増えたという人も多いそうだ｡
+外出回数は、高齢者の体と心の健康に大きく影響する。（ 50 ）調査では、歩行に障害が出
+た人の数は、外出回数が1日1回以上の人より3日に1回未満の人のほうが約4倍も多かった。
+また、外出は心の健康のために欠かせないという研究報告もある。外出によって脳に刺激を
+与えることは、脳の機能が低下するのを防ぎ、心の健康につながるのだそうだ｡
+外出と健康の関係を考えると、高齢者が外出することには大きな意味がある。高齢化が進む
+日本（ 51 ）、外出支援サービスは重要な役割を果たしているのだ｡
+      </div>`;
+    }
+
+    html += `
+    <div class="card-q">
+      <div class="sentence" data-vi="${q.vi}">
+        <span class="number">${number}</span>
+        ${highlight(q.sentence, q.word, q.mean)}
+      </div>
+
+      <div class="row g-2">
+        ${q.options.map((opt,index)=>`
+          <div class="col-12">
+            <label class="option d-flex align-items-center" id="q${i}_${index}">
+              <input type="radio" name="q${i}" value="${index}" onchange="checkOne(${i})">
+              ${index+1}. ${opt}
+            </label>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+    `;
+  });
+
+  document.getElementById("quiz").innerHTML = html;
+}
+
+function checkOne(i){
+  let q = data[i];
+  let selected = document.querySelector(`input[name="q${i}"]:checked`);
+
+  q.options.forEach((_,index)=>{
+    document.getElementById(`q${i}_${index}`)
+      .classList.remove("correct","wrong");
+  });
+
+  if(selected){
+    let val = Number(selected.value);
+
+    q.options.forEach((_,index)=>{
+      let el = document.getElementById(`q${i}_${index}`);
+
+      if(index === q.correct) el.classList.add("correct");
+      if(index === val && index !== q.correct) el.classList.add("wrong");
+    });
+  }
+}
+
+function check(){
+  data.forEach((q,i)=>{
+    let selected = document.querySelector(`input[name="q${i}"]:checked`);
+
+    q.options.forEach((_,index)=>{
+      document.getElementById(`q${i}_${index}`)
+        .classList.remove("correct","wrong");
+    });
+
+    if(selected){
+      let val = Number(selected.value);
+
+      q.options.forEach((_,index)=>{
+        let el = document.getElementById(`q${i}_${index}`);
+
+        if(index === q.correct) el.classList.add("correct");
+        if(index === val && index !== q.correct) el.classList.add("wrong");
+      });
+    }
+  });
+}
+
+function resetAll(){
+  document.querySelectorAll("input").forEach(e=>e.checked=false);
+  document.querySelectorAll(".option").forEach(e=>{
+    e.classList.remove("correct","wrong");
+  });
+}
+
+render();
+</script>
+
+</body>
+</html>
