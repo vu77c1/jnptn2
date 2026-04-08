@@ -1,688 +1,621 @@
-
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-<meta charset="UTF-8">
-<title>JLPT N2 12/2025</title>
+    <meta charset="UTF-8">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MOBILE TO HƠN -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3">
 
-<style>
-body { background:#f5f7fb; }
+    <title>JLPT N2 7 Từ vựng, ngữ pháp 7/2025</title>
 
-/* number */
-.number{
-  display:inline-flex;
-  justify-content:center;
-  align-items:center;
-  border:2px solid #333;
-  width:36px;
-  height:36px;
-  border-radius:8px;
-  font-weight:bold;
-  margin-right:10px;
-}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 
-/* card */
-.card-q{
-  background:#fff;
-  border-radius:12px;
-  padding:16px;
-  margin-bottom:20px;
-  box-shadow:0 2px 8px rgba(0,0,0,0.05);
-}
-
-/* option */
-.option{
-  cursor:pointer;
-  padding:10px;
-  border-radius:8px;
-  border:1px solid #ddd;
-  transition:0.2s;
-  height:100%;
-}
-
-.option:hover{
-  background:#f1f5ff;
-  border-color:#0d6efd;
-}
-
-.option input{
-  margin-right:6px;
-}
-
-/* result */
-.correct{
-  background:#e8f7ee;
-  border-color:green;
-  color:green;
-  font-weight:bold;
-}
-
-.wrong{
-  background:#fdeaea;
-  border-color:red;
-  color:red;
-}
-
-/* highlight */
-.highlight{
-  border-bottom:2px solid #333;
-  font-weight:bold;
-  position:relative;
-}
-
-.highlight:hover::after{
-  content:attr(data-mean);
-  position:absolute;
-  top:-35px;
-  left:0;
-  background:#000;
-  color:#fff;
-  padding:4px 8px;
-  font-size:12px;
-  border-radius:5px;
-  white-space:nowrap;
-}
-
-/* sentence */
-.sentence{
-  position:relative;
-  margin-bottom:10px;
-  line-height:1.6;
-}
-
-.sentence:hover::after{
-  content:attr(data-vi);
-  position:absolute;
-  top:100%;
-  left:0;
-  background:#0d6efd;
-  color:#fff;
-  padding:6px 10px;
-  font-size:13px;
-  border-radius:6px;
-  white-space:nowrap;
-  z-index:10;
-}
-
-/* reading */
-.reading{
-  background:#fff;
-  padding:18px;
-  border-radius:12px;
-  line-height:1.8;
-  margin-bottom:20px;
-  box-shadow:0 2px 8px rgba(0,0,0,0.05);
-}
-</style>
 </head>
 
 <body>
 
-<div class="container py-4">
- <!-- ===== MENU LUYỆN THI N2 ===== -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
-  <div class="container">
-    <a class="navbar-brand" href="#">JLPT N2</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarN2" aria-controls="navbarN2" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <div class="container py-4">
 
-    <div class="collapse navbar-collapse" id="navbarN2">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <!-- 2025 với dropdown -->
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="n2_2025" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            2025
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="n2_2025">
-            <li><a class="dropdown-item" href="n2-12-2025.html">12/2025</a></li>
-            <li><a class="dropdown-item" href="index.html">7/2025</a></li>
-          </ul>
-        </li>
+        <!-- ===== MENU LUYỆN THI N2 ===== -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+            <div class="container">
+                <a class="navbar-brand" href="#">JLPT N2</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarN2"
+                    aria-controls="navbarN2" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-        <!-- Các năm khác -->
-        <li class="nav-item"><a class="nav-link" href="n2_2024.html">2024</a></li>
-        <li class="nav-item"><a class="nav-link" href="n2_2023.html">2023</a></li>
-      </ul>
+                <div class="collapse navbar-collapse" id="navbarN2">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <!-- 2025 với dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="n2_2025" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                2025
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="n2_2025">
+                                <li><a class="dropdown-item" href="n2-12-2025.html">12/2025</a></li>
+                                <li><a class="dropdown-item" href="index.html">7/2025</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Các năm khác -->
+                        <li class="nav-item"><a class="nav-link" href="n2_2024.html">2024</a></li>
+                        <li class="nav-item"><a class="nav-link" href="n2_2023.html">2023</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <h3 class="mb-4 text-center">JLPT N2 - 7/2025</h3>
+
+        <div id="quiz"></div>
+
+        <div class="text-center mt-4">
+            <button class="btn btn-success" onclick="check()">Xem đáp án</button>
+            <button class="btn btn-secondary ms-2" onclick="resetAll()">Làm lại</button>
+                        <div class="text-center mt-3" id="result"></div>
+
+        </div>
+
     </div>
-  </div>
-</nav>
+    <!-- Thêm ngay trước </body> -->
+    <!-- Nút Back to Top -->
+    <button id="backToTop" title="Back to top" style="
+  display:none;
+  position:fixed;
+  bottom:40px;
+  right:40px;
+  z-index:99;
+  font-size:18px;
+  border:none;
+  outline:none;
+  background:#0d6efd;
+  color:white;
+  cursor:pointer;
+  padding:12px 18px;
+  border-radius:8px;
+">↑ Top</button>
 
-<h3 class="mb-4 text-center">JLPT N2 - 12/2025</h3>
+    <script>
+        // Hiển thị nút khi scroll xuống
+        window.onscroll = function () { scrollFunction() };
 
-<div id="quiz"></div>
+        function scrollFunction() {
+            let btn = document.getElementById("backToTop");
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        }
 
-<div class="text-center mt-4">
-  <button class="btn btn-success" onclick="check()">Xem đáp án</button>
-  <button class="btn btn-secondary ms-2" onclick="resetAll()">Làm lại</button>
-</div>
+        // Khi click, scroll về đầu trang
+        document.getElementById("backToTop").addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        // ===== DATA GIỮ NGUYÊN =====
+        const data = [
+            // 問題1
+            {
+                section: "問題1 ___の言葉の読み方として最もよいものを選びなさい｡",
+                sentence: "この家の柱はしっかりしている。",
+                vi: "Cột của ngôi nhà này rất chắc chắn",
+                word: "柱",
+                mean: "cột",
+                options: ["はしら", "ゆか", "かべ", "たな"],
+                correct: 0
+            },
+            {
+                sentence: "なかなか討論が終わらない。",
+                vi: "Cuộc tranh luận mãi không kết thúc",
+                word: "討論",
+                mean: "tranh luận",
+                options: ["どうろん", "ぎろん", "とうろん", "きろん"],
+                correct: 2
+            },
+            {
+                sentence: "家具の色は白で統一した。",
+                vi: "Màu nội thất được thống nhất là trắng",
+                word: "統一",
+                mean: "thống nhất",
+                options: ["とういつ", "とういち", "どういつ", "どういち"],
+                correct: 0
+            },
+            {
+                sentence: "彼はいつも誰かと争っている。",
+                vi: "Anh ta luôn tranh cãi với ai đó",
+                word: "争って",
+                mean: "tranh cãi",
+                options: ["たたかって", "あらそって", "きそって", "ぶつかって"],
+                correct: 1
+            },
+            {
+                sentence: "この野菜はビタミンが豊富だ。",
+                vi: "Loại rau này rất giàu vitamin",
+                word: "豊富",
+                mean: "dồi dào",
+                options: ["ほんふう", "ほんふ", "ほうふう", "ほうふ"],
+                correct: 3
+            },
 
-</div>
+            // 問題2
+            {
+                section: "問題2 ___の言葉を漢字で書くとき、最もよいものを選びなさい｡",
+                sentence: "「デジタルカメラ」をりゃくして「デジカメ」という｡",
+                vi: "“Digital camera” được rút gọn thành “dejikame”",
+                word: "りゃくして",
+                mean: "rút gọn",
+                options: ["縮して", "省して", "略して", "簡して"],
+                correct: 2
+            },
+            {
+                sentence: "暑いので、日陰ですずんだ｡",
+                vi: "Vì nóng nên nghỉ mát ở chỗ râm",
+                word: "すずんだ",
+                mean: "nghỉ mát",
+                options: ["挟んだ", "冷んだ", "清んだ", "涼んだ"],
+                correct: 3
+            },
+            {
+                sentence: "来年からサービスをかくじゅうすることになった｡",
+                vi: "Từ năm sau sẽ mở rộng dịch vụ",
+                word: "かくじゅう",
+                mean: "mở rộng",
+                options: ["拡張", "拡充", "各充", "各張"],
+                correct: 1
+            },
+            {
+                sentence: "私はあの人たちにすくわれました｡",
+                vi: "Tôi đã được giúp đỡ",
+                word: "すくわれました",
+                mean: "được cứu",
+                options: ["嫌われました", "敬われました", "疑われました", "救われました"],
+                correct: 3
+            },
+            {
+                sentence: "犯人はすでに国外に逃亡した可能性がのうこうだ｡",
+                vi: "Khả năng cao thủ phạm đã trốn ra nước ngoài",
+                word: "のうこう",
+                mean: "khả năng cao",
+                options: ["濃厚", "農厚", "濃高", "農高"],
+                correct: 0
+            },
+            {
+                section: "問題3 （ ）に入れるのに最もよいものを選びなさい｡",
+                sentence: "９時（ ）の新幹線に乗るために、７時に家を出た｡",
+                vi: "Tôi rời nhà lúc 7 giờ để kịp lên Shinkansen lúc 9 giờ",
+                word: "（ ）",
+                mean: "điền từ phù hợp",
+                options: ["行", "発", "進", "始"],
+                correct: 1
+            },
+            {
+                sentence: "コンサートのチケットは、先着（ ）で買うことができます｡",
+                vi: "Vé concert được mua theo thứ tự đến trước",
+                word: "（ ）",
+                mean: "điền từ",
+                options: ["列", "番", "序", "順"],
+                correct: 3
+            },
+            {
+                sentence: "（ ）予約の場合は、キャンセル料がかかりません｡",
+                vi: "Nếu là đặt chỗ tạm thì không mất phí hủy",
+                word: "（ ）",
+                mean: "điền từ",
+                options: ["単", "副", "仮", "中"],
+                correct: 2
+            },
 
-<script>
+            // ===== 問題4 =====
+            {
+                section: "問題4 （ ）に入れるのに最もよいものを選びなさい｡",
+                sentence: "風邪を（ ）のために、栄養と睡眠を十分に取りましょう｡",
+                vi: "Để phòng cảm cúm, hãy bổ sung dinh dưỡng và ngủ đủ",
+                word: "（ ）",
+                mean: "điền từ",
+                options: ["自衛", "予備", "予防", "守衛"],
+                correct: 2
+            },
+            {
+                sentence: "昨日のコンサートでは、（ ）に近い席に座れたので、講演者の様子がよく見えた｡",
+                vi: "Hôm qua tôi ngồi gần sân khấu nên thấy rõ người biểu diễn",
+                word: "（ ）",
+                mean: "điền từ",
+                options: ["ホール", "ステージ", "スペース", "マーケット"],
+                correct: 1
+            },
+            {
+                sentence: "来週の発表の内容を（ ）して、大事なところだけ短くまとめて話してください｡",
+                vi: "Hãy tóm tắt nội dung và chỉ nói những điểm quan trọng",
+                word: "（ ）",
+                mean: "điền từ",
+                options: ["要約", "節約", "減量", "縮小"],
+                correct: 0
+            },
+            {
+                sentence: "フライパンの油が周りに（ ）キッチンが汚れた｡",
+                vi: "Dầu bắn ra xung quanh làm bếp bị bẩn",
+                word: "（ ）",
+                mean: "điền từ",
+                options: ["飛び散って", "飛び立って", "飛び超えて", "飛び上がって"],
+                correct: 0
+            },
+            {
+                sentence: "私の娘は音に（ ）で、小さな音でも目が覚めてしまう｡",
+                vi: "Con gái tôi nhạy cảm với âm thanh nên dễ thức giấc",
+                word: "（ ）",
+                mean: "điền từ",
+                options: ["詳細", "器用", "敏感", "短気"],
+                correct: 2
+            },
+            {
+                sentence: "木村教授の主張が正しいことを（ ）資料が見つかった｡",
+                vi: "Đã tìm thấy tài liệu chứng minh quan điểm của giáo sư Kimura là đúng",
+                word: "（ ）",
+                mean: "điền từ",
+                options: ["近づける", "取り上げる", "持ち上げる", "裏付ける"],
+                correct: 3
+            },
+            {
+                sentence: "今日は仕事で一日中歩き回ったので、（ ）疲れた｡",
+                vi: "Hôm nay đi lại cả ngày nên mệt rã rời",
+                word: "（ ）",
+                mean: "điền từ",
+                options: ["かさかさに", "くたくたに", "ぶくぶくに", "ふさふさに"],
+                correct: 1
+            },
+            {
+                section: "問題5 ___の言葉に意味が最も近いものを選びなさい｡",
+                sentence: "二人の意見は一致していた｡",
+                vi: "Ý kiến của hai người giống nhau",
+                word: "一致",
+                mean: "giống nhau / trùng khớp",
+                options: ["正しかった", "同じだった", "はっきりしていた", "似ていた"],
+                correct: 1
+            },
+            {
+                sentence: "この作品の題はとても印象的だ｡",
+                vi: "Tiêu đề của tác phẩm này rất ấn tượng",
+                word: "題",
+                mean: "tiêu đề",
+                options: ["デザイン", "アイデア", "ストーリー", "タイトル"],
+                correct: 3
+            },
+            {
+                sentence: "この辺りは、いつもそうぞうしい｡",
+                vi: "Khu vực này lúc nào cũng ồn ào",
+                word: "そうぞうしい",
+                mean: "ồn ào",
+                options: ["暗い", "静かだ", "明るい", "うるさい"],
+                correct: 3
+            },
+            {
+                sentence: "私はいつもより用心した｡",
+                vi: "Tôi cẩn thận hơn bình thường",
+                word: "用心",
+                mean: "cẩn thận",
+                options: ["注意", "努力", "準備", "集中"],
+                correct: 0
+            },
+            {
+                sentence: "このシャツは私にはぶかぶかだ｡",
+                vi: "Cái áo này rộng quá với tôi",
+                word: "ぶかぶか",
+                mean: "rộng thùng thình",
+                options: ["派手すぎる", "小さすぎる", "大きすぎる", "地味すぎる"],
+                correct: 2
+            },
+            {
+                section: "問題6 次の言葉の使い方として最も近いものを選びなさい｡",
+                sentence: "休憩",
+                vi: "Chọn câu dùng từ 'nghỉ ngơi' đúng nhất",
+                word: "休憩",
+                mean: "nghỉ ngơi giữa giờ",
+                options: [
+                    "仕事の途中だったが、少し疲れたので休憩を取った｡",
+                    "今週は日曜日に仕事がありますが、月曜日は休憩です｡",
+                    "夏の休憩を使って、家族と海外旅行に行きました｡",
+                    "手術のため、病院で１週間、休憩をすることになった｡"
+                ],
+                correct: 0
+            },
+            {
+                sentence: "進める",
+                vi: "Chọn câu dùng từ 'tiến hành / thúc đẩy' đúng",
+                word: "進める",
+                mean: "tiến hành, thúc đẩy",
+                options: [
+                    "一度試合に勝って自信を進めれば、チームの成績はよくなるだろう｡",
+                    "朝にトレーニングを行うことで、運動の効果を進めることができるそうです。",
+                    "市では現在、防災対策として、道路整備の検討を進めています｡",
+                    "森さんが仕事で同じ失敗を繰り選すのは、その失敗の反省を進めていないからだ｡"
+                ],
+                correct: 2
+            },
+            {
+                sentence: "貢献",
+                vi: "Chọn câu dùng từ 'đóng góp' đúng",
+                word: "貢献",
+                mean: "đóng góp",
+                options: [
+                    "高校時代の先生の一言が、私の人生に大きく貢献した｡",
+                    "この薬は、痛みを抑えるのに大きく貢献するのでよく売れるらしい",
+                    "鈴木氏が長い間行ってきた活動は、地域の安全に大きく貢献した｡",
+                    "海外での経験が就職に大きく貢献し、希望の会社に入社できた。"
+                ],
+                correct: 2
+            },
+            {
+                sentence: "早急",
+                vi: "Chọn câu dùng từ 'khẩn cấp / nhanh chóng' đúng",
+                word: "早急",
+                mean: "khẩn cấp",
+                options: [
+                    "原さんは素質があるので、早急に強くなって、試合にも勝てるだろう｡",
+                    "薬がよく効いたようで、痛みは早急に治まった｡",
+                    "二つの液体を混ぜると、早急に反応して気体が発生する｡",
+                    "この問題については早急に対策を検討する必要がある｡"
+                ],
+                correct: 3
+            },
+            {
+                sentence: "区切り",
+                vi: "Chọn câu dùng từ 'mốc / điểm dừng' đúng",
+                word: "区切り",
+                mean: "điểm dừng / ngắt",
+                options: [
+                    "雨が降っている間、区切りがついていた試合が、やっと再開された｡",
+                    "この仕事は今日中に終わりそうもないので、区切りをつけて帰るます｡",
+                    "今が成功か失敗かの区切りなので、諦めずに頑張りましょう｡",
+                    "次のバスまで区切りが２時間あるので、食事をしながら待つことにした。"
+                ],
+                correct: 1
+            },
 
-// ===== GIỮ NGUYÊN DATA CỦA BẠN =====
-const data = [
-  // 問題1
-  {
-    section: "問題1 ___の言葉の読み方として最もよいものを選びなさい｡",
-    sentence: "この家の柱はしっかりしている。",
-    vi: "Cột của ngôi nhà này rất chắc chắn",
-    word: "柱",
-    mean: "cột",
-    options: ["はしら","ゆか","かべ","たな"],
-    correct: 0
-  },
-  {
-    sentence: "なかなか討論が終わらない。",
-    vi: "Cuộc tranh luận mãi không kết thúc",
-    word: "討論",
-    mean: "tranh luận",
-    options: ["どうろん","ぎろん","とうろん","きろん"],
-    correct: 2
-  },
-  {
-    sentence: "家具の色は白で統一した。",
-    vi: "Màu nội thất được thống nhất là trắng",
-    word: "統一",
-    mean: "thống nhất",
-    options: ["とういつ","とういち","どういつ","どういち"],
-    correct: 0
-  },
-  {
-    sentence: "彼はいつも誰かと争っている。",
-    vi: "Anh ta luôn tranh cãi với ai đó",
-    word: "争って",
-    mean: "tranh cãi",
-    options: ["たたかって","あらそって","きそって","ぶつかって"],
-    correct: 1
-  },
-  {
-    sentence: "この野菜はビタミンが豊富だ。",
-    vi: "Loại rau này rất giàu vitamin",
-    word: "豊富",
-    mean: "dồi dào",
-    options: ["ほんふう","ほんふ","ほうふう","ほうふ"],
-    correct: 3
-  },
+            {
+                section: "問題7 次の文の（ ）に入れるのに最もよいものを選びなさい｡",
+                sentence: "今朝は、寝坊をしてしまい、（ ）抜きで大学に来た｡",
+                vi: "Sáng nay ngủ quên nên đến trường mà không ăn sáng",
+                word: "（ ）抜き",
+                mean: "không có ~",
+                options: ["朝食が", "朝食の", "朝食に", "朝食"],
+                correct: 3
+            },
+            {
+                sentence: "新しいコーヒーカップを使い始めて（ ）たたないうちに、床に落として割ってしまった｡",
+                vi: "Vừa mới dùng cốc cà phê mới chưa lâu đã làm rơi vỡ",
+                word: "（ ）たたないうちに",
+                mean: "chưa được bao lâu",
+                options: ["まだ", "まもなく", "いくらも", "いつのまにか"],
+                correct: 2
+            },
+            {
+                sentence: "「一日乗車券」は、ご購入いただいた当日（ ）、何度でも自由に乗り降りができる乗車券です｡",
+                vi: "Vé 1 ngày có thể lên xuống không giới hạn trong ngày mua",
+                word: "（ ）",
+                mean: "trong phạm vi",
+                options: ["につれ", "に際し", "にわたり", "に限り"],
+                correct: 3
+            },
+            {
+                sentence: "苦手な同僚と同じチームで仕事をすることになってしまったが、決まった（ ）うまく付き合っていこうと思う｡",
+                vi: "Đã lỡ cùng team với người không hợp nên phải cố gắng hòa hợp",
+                word: "（ ）",
+                mean: "một khi đã ~ thì",
+                options: ["からには", "わりには", "ばかりか", "どころか"],
+                correct: 0
+            },
+            {
+                sentence: "P社のおもちゃは、赤ちゃんが口に（ ）米や麦粉を原料として作られているそうだ｡",
+                vi: "Đồ chơi công ty P được làm từ nguyên liệu an toàn dù bé cho vào miệng",
+                word: "（ ）",
+                mean: "để dù có ~ cũng ổn",
+                options: [
+                    "入れてもよければ",
+                    "入れてもいいように",
+                    "入れることがあれば",
+                    "入れることがあるように"
+                ],
+                correct: 1
+            },
+            {
+                sentence: "私は音楽大学でバイオリンを専攻しているが、卒業後は演奏家（ ）子どもたちに教えるという形で関わりたい｡",
+                vi: "Sau khi tốt nghiệp, tôi muốn dạy trẻ thay vì làm nghệ sĩ biểu diễn",
+                word: "（ ）",
+                mean: "không phải ~ mà là",
+                options: [
+                    "としてだったら",
+                    "にとってだったら",
+                    "としてではなく",
+                    "にとってではなく"
+                ],
+                correct: 2
+            },
+            {
+                sentence: "A「私は卓球始めたんです。」 B「私も、友達と遊びで少し（ ）、習うのは初めてです｡」",
+                vi: "Tôi cũng chỉ từng chơi qua với bạn, còn học bài bản thì đây là lần đầu",
+                word: "（ ）",
+                mean: "chỉ từng ~ thôi",
+                options: [
+                    "やったことがあるだけで",
+                    "やったことがあることで",
+                    "やっていなかったことで",
+                    "やっていなかっただけで"
+                ],
+                correct: 0
+            },
+            {
+                sentence: "後輩の田中さんは仕事熱心だが、少しまじめすぎる（ ）｡",
+                vi: "Tanaka (hậu bối) rất chăm chỉ nhưng hơi nghiêm túc quá",
+                word: "（ ）",
+                mean: "có xu hướng / có mặt như vậy",
+                options: [
+                    "ことになっている",
+                    "ところがある",
+                    "がちだ",
+                    "ものだ"
+                ],
+                correct: 1
+            },
+            {
+                sentence: "駅前のラーメン屋はいつも込んでいて、けっこう待たされるのに、今日はそんなに（ ）｡",
+                vi: "Quán ramen trước ga thường đông phải đợi lâu, nhưng hôm nay thì không phải đợi nhiều",
+                word: "（ ）",
+                mean: "không phải ~",
+                options: [
+                    "待たずに済んだ",
+                    "待ったおかげだ",
+                    "待ちきれなかった",
+                    "待たなければよかった"
+                ],
+                correct: 0
+            },
+            {
+                sentence: "私は彼と結婚したいと思っているが、彼はきっとまた結婚は（ ）｡",
+                vi: "Tôi muốn kết hôn với anh ấy nhưng chắc anh ấy không còn nghĩ đến chuyện kết hôn nữa",
+                word: "（ ）",
+                mean: "chắc chắn là",
+                options: [
+                    "考えなくなってもしかたない",
+                    "考えなくなるに違いない",
+                    "考えていなくてもしかたがない",
+                    "考えていないに違いない"
+                ],
+                correct: 3
+            },
+            {
+                sentence: "社長「新商品のコマーシャルについては、どうなっていますか。」課長「それについては、担当の私から、ご報告（ ）。」",
+                vi: "Trưởng phòng: Về quảng cáo sản phẩm mới, tôi xin báo cáo",
+                word: "（ ）",
+                mean: "khiêm nhường (kính ngữ)",
+                options: [
+                    "なさいます",
+                    "おっしゃいます",
+                    "申し上げます",
+                    "伺います"
+                ],
+                correct: 2
+            },
+            {
+                sentence: "ピアノの発表会の前に、間違えそうで怖いと先生に言ったら、「ちょっとぐらい（ ）よ。」と言われた｡",
+                vi: "Trước buổi biểu diễn piano, giáo viên nói: sai một chút cũng không sao",
+                word: "（ ）",
+                mean: "không sao nếu ~",
+                options: [
+                    "間違えちゃいけないんだ",
+                    "間違えたっていいんだ",
+                    "間違えなきゃいいんだ",
+                    "間違えたいんじゃないんだ"
+                ],
+                correct: 1
+            },
+            {
+                section: "問題8 次の文の＿★＿に入る最もよいものを選びなさい｡",
+                sentence: "ちょっと ___ ___ ★ ___ 好みのTシャツを見つけてしまい、つい買ってしまいました｡",
+                vi: "Chỉ định vào xem chút nhưng lại mua luôn vì thấy áo hợp gu",
+                word: "★",
+                mean: "chọn cụm đúng vị trí ★",
+                options: ["だけの", "つもりで", "服屋に入ったら", "見る"],
+                correct: 2
+            },
+            {
+                sentence: "兄は最近ずっと「歯が痛い」と言っているが、歯医者に行こうとしない。そんなに ___ ___ ★ ___｡",
+                vi: "Anh tôi cứ kêu đau răng mà không đi khám, đau vậy thì nên đi sớm",
+                word: "★",
+                mean: "chọn cụm đúng vị trí ★",
+                options: ["痛い", "早く行けばいい", "のに", "んだったら"],
+                correct: 0
+            },
+            {
+                sentence: "「Pチーズ」はチーズ料理の専門店で、私のような ___ ___ ★ ___ 店だ｡",
+                vi: "Đây là quán rất đáng giới thiệu cho người mê phô mai như tôi",
+                word: "★",
+                mean: "chọn cụm đúng vị trí ★",
+                options: ["人に", "好きでたまらないという", "チーズが", "ぜひおすすめしたい"],
+                correct: 3
+            },
+            {
+                sentence: "親友の花子に初めて会ったとき、初対面とは思えない ___ ___ ★ ___｡",
+                vi: "Lần đầu gặp mà nói chuyện hợp đến mức không giống mới gặp",
+                word: "★",
+                mean: "chọn cụm đúng vị trí ★",
+                options: ["よく覚えている", "ぐらい", "のを", "話が盛り上がった"],
+                correct: 3
+            },
+            {
+                sentence: "学生のころ、様々な国を旅行して、自分の ___ ___ ★ ___ あることを知った｡",
+                vi: "Khi còn là sinh viên, đi nhiều nước giúp tôi nhận ra điều đó",
+                word: "★",
+                mean: "chọn cụm đúng vị trí ★",
+                options: ["出会えない", "交流したことで", "国にいては", "様々な文化や価値観を持つ人と"],
+                correct: 2
+            },
 
-  // 問題2
-  {
-    section: "問題2 ___の言葉を漢字で書くとき、最もよいものを選びなさい｡",
-    sentence: "「デジタルカメラ」をりゃくして「デジカメ」という｡",
-    vi: "“Digital camera” được rút gọn thành “dejikame”",
-    word: "りゃくして",
-    mean: "rút gọn",
-    options: ["縮して","省して","略して","簡して"],
-    correct: 2
-  },
-  {
-    sentence: "暑いので、日陰ですずんだ｡",
-    vi: "Vì nóng nên nghỉ mát ở chỗ râm",
-    word: "すずんだ",
-    mean: "nghỉ mát",
-    options: ["挟んだ","冷んだ","清んだ","涼んだ"],
-    correct: 3
-  },
-  {
-    sentence: "来年からサービスをかくじゅうすることになった｡",
-    vi: "Từ năm sau sẽ mở rộng dịch vụ",
-    word: "かくじゅう",
-    mean: "mở rộng",
-    options: ["拡張","拡充","各充","各張"],
-    correct: 1
-  },
-  {
-    sentence: "私はあの人たちにすくわれました｡",
-    vi: "Tôi đã được giúp đỡ",
-    word: "すくわれました",
-    mean: "được cứu",
-    options: ["嫌われました","敬われました","疑われました","救われました"],
-    correct: 3
-  },
-  {
-    sentence: "犯人はすでに国外に逃亡した可能性がのうこうだ｡",
-    vi: "Khả năng cao thủ phạm đã trốn ra nước ngoài",
-    word: "のうこう",
-    mean: "khả năng cao",
-    options: ["濃厚","農厚","濃高","農高"],
-    correct: 0
-  },
-  {
-  section: "問題3 （ ）に入れるのに最もよいものを選びなさい｡",
-  sentence: "９時（ ）の新幹線に乗るために、７時に家を出た｡",
-  vi: "Tôi rời nhà lúc 7 giờ để kịp lên Shinkansen lúc 9 giờ",
-  word: "（ ）",
-  mean: "điền từ phù hợp",
-  options: ["行","発","進","始"],
-  correct: 1
-},
-{
-  sentence: "コンサートのチケットは、先着（ ）で買うことができます｡",
-  vi: "Vé concert được mua theo thứ tự đến trước",
-  word: "（ ）",
-  mean: "điền từ",
-  options: ["列","番","序","順"],
-  correct: 3
-},
-{
-  sentence: "（ ）予約の場合は、キャンセル料がかかりません｡",
-  vi: "Nếu là đặt chỗ tạm thì không mất phí hủy",
-  word: "（ ）",
-  mean: "điền từ",
-  options: ["単","副","仮","中"],
-  correct: 2
-},
+            {
+                section: "問題9 次の文章を読んで、（48）から（51）に入る最もよいものを選びなさい｡",
+                sentence: "",
+                vi: "Có người nói rằng nếu món ăn đẹp mắt thì việc ăn uống cũng thú vị hơn",
+                word: "（48）",
+                mean: "điền phù hợp",
+                options: ["多いとします", "多かったとします", "多いでしょう", "多かったでしょう"],
+                correct: 2
+            },
+            {
+                sentence: "",
+                vi: "Thực ra, gần đây người ta phát hiện rằng hình thức món ăn không chỉ ảnh hưởng trước khi ăn",
+                word: "（49）",
+                mean: "liên từ",
+                options: ["実は", "確かに", "しかも", "ところが"],
+                correct: 0
+            },
+            {
+                sentence: "",
+                vi: "Thông tin từ mắt thậm chí ảnh hưởng đến cách cảm nhận vị khi ăn",
+                word: "（50）",
+                mean: "mức độ ảnh hưởng",
+                options: ["にのみ", "にまで", "に限らず", "に比べて"],
+                correct: 1
+            },
+            {
+                sentence: "",
+                vi: "Có lẽ vì điều đó được hiểu theo cảm giác nên mới có cách nói 'thưởng thức bằng mắt'",
+                word: "（51）",
+                mean: "suy đoán",
+                options: [
+                    "なったにすぎません",
+                    "なったはずがありません",
+                    "なったとはいえません",
+                    "になったのかもしれません"
+                ],
+                correct: 3
+            }
 
-// ===== 問題4 =====
-{
-  section: "問題4 （ ）に入れるのに最もよいものを選びなさい｡",
-  sentence: "風邪を（ ）のために、栄養と睡眠を十分に取りましょう｡",
-  vi: "Để phòng cảm cúm, hãy bổ sung dinh dưỡng và ngủ đủ",
-  word: "（ ）",
-  mean: "điền từ",
-  options: ["自衛","予備","予防","守衛"],
-  correct: 2
-},
-{
-  sentence: "昨日のコンサートでは、（ ）に近い席に座れたので、講演者の様子がよく見えた｡",
-  vi: "Hôm qua tôi ngồi gần sân khấu nên thấy rõ người biểu diễn",
-  word: "（ ）",
-  mean: "điền từ",
-  options: ["ホール","ステージ","スペース","マーケット"],
-  correct: 1
-},
-{
-  sentence: "来週の発表の内容を（ ）して、大事なところだけ短くまとめて話してください｡",
-  vi: "Hãy tóm tắt nội dung và chỉ nói những điểm quan trọng",
-  word: "（ ）",
-  mean: "điền từ",
-  options: ["要約","節約","減量","縮小"],
-  correct: 0
-},
-{
-  sentence: "フライパンの油が周りに（ ）キッチンが汚れた｡",
-  vi: "Dầu bắn ra xung quanh làm bếp bị bẩn",
-  word: "（ ）",
-  mean: "điền từ",
-  options: ["飛び散って","飛び立って","飛び超えて","飛び上がって"],
-  correct: 0
-},
-{
-  sentence: "私の娘は音に（ ）で、小さな音でも目が覚めてしまう｡",
-  vi: "Con gái tôi nhạy cảm với âm thanh nên dễ thức giấc",
-  word: "（ ）",
-  mean: "điền từ",
-  options: ["詳細","器用","敏感","短気"],
-  correct: 2
-},
-{
-  sentence: "木村教授の主張が正しいことを（ ）資料が見つかった｡",
-  vi: "Đã tìm thấy tài liệu chứng minh quan điểm của giáo sư Kimura là đúng",
-  word: "（ ）",
-  mean: "điền từ",
-  options: ["近づける","取り上げる","持ち上げる","裏付ける"],
-  correct: 3
-},
-{
-  sentence: "今日は仕事で一日中歩き回ったので、（ ）疲れた｡",
-  vi: "Hôm nay đi lại cả ngày nên mệt rã rời",
-  word: "（ ）",
-  mean: "điền từ",
-  options: ["かさかさに","くたくたに","ぶくぶくに","ふさふさに"],
-  correct: 1
-},
-{
-  section: "問題5 ___の言葉に意味が最も近いものを選びなさい｡",
-  sentence: "二人の意見は一致していた｡",
-  vi: "Ý kiến của hai người giống nhau",
-  word: "一致",
-  mean: "giống nhau / trùng khớp",
-  options: ["正しかった","同じだった","はっきりしていた","似ていた"],
-  correct: 1
-},
-{
-  sentence: "この作品の題はとても印象的だ｡",
-  vi: "Tiêu đề của tác phẩm này rất ấn tượng",
-  word: "題",
-  mean: "tiêu đề",
-  options: ["デザイン","アイデア","ストーリー","タイトル"],
-  correct: 3
-},
-{
-  sentence: "この辺りは、いつもそうぞうしい｡",
-  vi: "Khu vực này lúc nào cũng ồn ào",
-  word: "そうぞうしい",
-  mean: "ồn ào",
-  options: ["暗い","静かだ","明るい","うるさい"],
-  correct: 3
-},
-{
-  sentence: "私はいつもより用心した｡",
-  vi: "Tôi cẩn thận hơn bình thường",
-  word: "用心",
-  mean: "cẩn thận",
-  options: ["注意","努力","準備","集中"],
-  correct: 0
-},
-{
-  sentence: "このシャツは私にはぶかぶかだ｡",
-  vi: "Cái áo này rộng quá với tôi",
-  word: "ぶかぶか",
-  mean: "rộng thùng thình",
-  options: ["派手すぎる","小さすぎる","大きすぎる","地味すぎる"],
-  correct: 2
-},
-{
-  section: "問題6 次の言葉の使い方として最も近いものを選びなさい｡",
-  sentence: "休憩",
-  vi: "Chọn câu dùng từ 'nghỉ ngơi' đúng nhất",
-  word: "休憩",
-  mean: "nghỉ ngơi giữa giờ",
-  options: [
-    "仕事の途中だったが、少し疲れたので休憩を取った｡",
-    "今週は日曜日に仕事がありますが、月曜日は休憩です｡",
-    "夏の休憩を使って、家族と海外旅行に行きました｡",
-    "手術のため、病院で１週間、休憩をすることになった｡"
-  ],
-  correct: 0
-},
-{
-  sentence: "進める",
-  vi: "Chọn câu dùng từ 'tiến hành / thúc đẩy' đúng",
-  word: "進める",
-  mean: "tiến hành, thúc đẩy",
-  options: [
-    "一度試合に勝って自信を進めれば、チームの成績はよくなるだろう｡",
-    "朝にトレーニングを行うことで、運動の効果を進めることができるそうです。",
-    "市では現在、防災対策として、道路整備の検討を進めています｡",
-    "森さんが仕事で同じ失敗を繰り選すのは、その失敗の反省を進めていないからだ｡"
-  ],
-  correct: 2
-},
-{
-  sentence: "貢献",
-  vi: "Chọn câu dùng từ 'đóng góp' đúng",
-  word: "貢献",
-  mean: "đóng góp",
-  options: [
-    "高校時代の先生の一言が、私の人生に大きく貢献した｡",
-    "この薬は、痛みを抑えるのに大きく貢献するのでよく売れるらしい",
-    "鈴木氏が長い間行ってきた活動は、地域の安全に大きく貢献した｡",
-    "海外での経験が就職に大きく貢献し、希望の会社に入社できた。"
-  ],
-  correct: 2
-},
-{
-  sentence: "早急",
-  vi: "Chọn câu dùng từ 'khẩn cấp / nhanh chóng' đúng",
-  word: "早急",
-  mean: "khẩn cấp",
-  options: [
-    "原さんは素質があるので、早急に強くなって、試合にも勝てるだろう｡",
-    "薬がよく効いたようで、痛みは早急に治まった｡",
-    "二つの液体を混ぜると、早急に反応して気体が発生する｡",
-    "この問題については早急に対策を検討する必要がある｡"
-  ],
-  correct: 3
-},
-{
-  sentence: "区切り",
-  vi: "Chọn câu dùng từ 'mốc / điểm dừng' đúng",
-  word: "区切り",
-  mean: "điểm dừng / ngắt",
-  options: [
-    "雨が降っている間、区切りがついていた試合が、やっと再開された｡",
-    "この仕事は今日中に終わりそうもないので、区切りをつけて帰るます｡",
-    "今が成功か失敗かの区切りなので、諦めずに頑張りましょう｡",
-    "次のバスまで区切りが２時間あるので、食事をしながら待つことにした。"
-  ],
-  correct: 1
-},
+        ];
 
-{
-  section: "問題7 次の文の（ ）に入れるのに最もよいものを選びなさい｡",
-  sentence: "今朝は、寝坊をしてしまい、（ ）抜きで大学に来た｡",
-  vi: "Sáng nay ngủ quên nên đến trường mà không ăn sáng",
-  word: "（ ）抜き",
-  mean: "không có ~",
-  options: ["朝食が","朝食の","朝食に","朝食"],
-  correct: 3
-},
-{
-  sentence: "新しいコーヒーカップを使い始めて（ ）たたないうちに、床に落として割ってしまった｡",
-  vi: "Vừa mới dùng cốc cà phê mới chưa lâu đã làm rơi vỡ",
-  word: "（ ）たたないうちに",
-  mean: "chưa được bao lâu",
-  options: ["まだ","まもなく","いくらも","いつのまにか"],
-  correct: 2
-},
-{
-  sentence: "「一日乗車券」は、ご購入いただいた当日（ ）、何度でも自由に乗り降りができる乗車券です｡",
-  vi: "Vé 1 ngày có thể lên xuống không giới hạn trong ngày mua",
-  word: "（ ）",
-  mean: "trong phạm vi",
-  options: ["につれ","に際し","にわたり","に限り"],
-  correct: 3
-},
-{
-  sentence: "苦手な同僚と同じチームで仕事をすることになってしまったが、決まった（ ）うまく付き合っていこうと思う｡",
-  vi: "Đã lỡ cùng team với người không hợp nên phải cố gắng hòa hợp",
-  word: "（ ）",
-  mean: "một khi đã ~ thì",
-  options: ["からには","わりには","ばかりか","どころか"],
-  correct: 0
-},
-{
-  sentence: "P社のおもちゃは、赤ちゃんが口に（ ）米や麦粉を原料として作られているそうだ｡",
-  vi: "Đồ chơi công ty P được làm từ nguyên liệu an toàn dù bé cho vào miệng",
-  word: "（ ）",
-  mean: "để dù có ~ cũng ổn",
-  options: [
-    "入れてもよければ",
-    "入れてもいいように",
-    "入れることがあれば",
-    "入れることがあるように"
-  ],
-  correct: 1
-},
-{
-  sentence: "私は音楽大学でバイオリンを専攻しているが、卒業後は演奏家（ ）子どもたちに教えるという形で関わりたい｡",
-  vi: "Sau khi tốt nghiệp, tôi muốn dạy trẻ thay vì làm nghệ sĩ biểu diễn",
-  word: "（ ）",
-  mean: "không phải ~ mà là",
-  options: [
-    "としてだったら",
-    "にとってだったら",
-    "としてではなく",
-    "にとってではなく"
-  ],
-  correct: 2
-},
-{
-  sentence: "A「私は卓球始めたんです。」 B「私も、友達と遊びで少し（ ）、習うのは初めてです｡」",
-  vi: "Tôi cũng chỉ từng chơi qua với bạn, còn học bài bản thì đây là lần đầu",
-  word: "（ ）",
-  mean: "chỉ từng ~ thôi",
-  options: [
-    "やったことがあるだけで",
-    "やったことがあることで",
-    "やっていなかったことで",
-    "やっていなかっただけで"
-  ],
-  correct: 0
-},
-{
-  sentence: "後輩の田中さんは仕事熱心だが、少しまじめすぎる（ ）｡",
-  vi: "Tanaka (hậu bối) rất chăm chỉ nhưng hơi nghiêm túc quá",
-  word: "（ ）",
-  mean: "có xu hướng / có mặt như vậy",
-  options: [
-    "ことになっている",
-    "ところがある",
-    "がちだ",
-    "ものだ"
-  ],
-  correct: 1
-},
-{
-  sentence: "駅前のラーメン屋はいつも込んでいて、けっこう待たされるのに、今日はそんなに（ ）｡",
-  vi: "Quán ramen trước ga thường đông phải đợi lâu, nhưng hôm nay thì không phải đợi nhiều",
-  word: "（ ）",
-  mean: "không phải ~",
-  options: [
-    "待たずに済んだ",
-    "待ったおかげだ",
-    "待ちきれなかった",
-    "待たなければよかった"
-  ],
-  correct: 0
-},
-{
-  sentence: "私は彼と結婚したいと思っているが、彼はきっとまた結婚は（ ）｡",
-  vi: "Tôi muốn kết hôn với anh ấy nhưng chắc anh ấy không còn nghĩ đến chuyện kết hôn nữa",
-  word: "（ ）",
-  mean: "chắc chắn là",
-  options: [
-    "考えなくなってもしかたない",
-    "考えなくなるに違いない",
-    "考えていなくてもしかたがない",
-    "考えていないに違いない"
-  ],
-  correct: 3
-},
-{
-  sentence: "社長「新商品のコマーシャルについては、どうなっていますか。」課長「それについては、担当の私から、ご報告（ ）。」",
-  vi: "Trưởng phòng: Về quảng cáo sản phẩm mới, tôi xin báo cáo",
-  word: "（ ）",
-  mean: "khiêm nhường (kính ngữ)",
-  options: [
-    "なさいます",
-    "おっしゃいます",
-    "申し上げます",
-    "伺います"
-  ],
-  correct: 2
-},
-{
-  sentence: "ピアノの発表会の前に、間違えそうで怖いと先生に言ったら、「ちょっとぐらい（ ）よ。」と言われた｡",
-  vi: "Trước buổi biểu diễn piano, giáo viên nói: sai một chút cũng không sao",
-  word: "（ ）",
-  mean: "không sao nếu ~",
-  options: [
-    "間違えちゃいけないんだ",
-    "間違えたっていいんだ",
-    "間違えなきゃいいんだ",
-    "間違えたいんじゃないんだ"
-  ],
-  correct: 1
-},
-{
-  section: "問題8 次の文の＿★＿に入る最もよいものを選びなさい｡",
-  sentence: "ちょっと ___ ___ ★ ___ 好みのTシャツを見つけてしまい、つい買ってしまいました｡",
-  vi: "Chỉ định vào xem chút nhưng lại mua luôn vì thấy áo hợp gu",
-  word: "★",
-  mean: "chọn cụm đúng vị trí ★",
-  options: ["だけの","つもりで","服屋に入ったら","見る"],
-  correct: 2
-},
-{
-  sentence: "兄は最近ずっと「歯が痛い」と言っているが、歯医者に行こうとしない。そんなに ___ ___ ★ ___｡",
-  vi: "Anh tôi cứ kêu đau răng mà không đi khám, đau vậy thì nên đi sớm",
-  word: "★",
-  mean: "chọn cụm đúng vị trí ★",
-  options: ["痛い","早く行けばいい","のに","んだったら"],
-  correct: 0
-},
-{
-  sentence: "「Pチーズ」はチーズ料理の専門店で、私のような ___ ___ ★ ___ 店だ｡",
-  vi: "Đây là quán rất đáng giới thiệu cho người mê phô mai như tôi",
-  word: "★",
-  mean: "chọn cụm đúng vị trí ★",
-  options: ["人に","好きでたまらないという","チーズが","ぜひおすすめしたい"],
-  correct: 3
-},
-{
-  sentence: "親友の花子に初めて会ったとき、初対面とは思えない ___ ___ ★ ___｡",
-  vi: "Lần đầu gặp mà nói chuyện hợp đến mức không giống mới gặp",
-  word: "★",
-  mean: "chọn cụm đúng vị trí ★",
-  options: ["よく覚えている","ぐらい","のを","話が盛り上がった"],
-  correct: 3
-},
-{
-  sentence: "学生のころ、様々な国を旅行して、自分の ___ ___ ★ ___ あることを知った｡",
-  vi: "Khi còn là sinh viên, đi nhiều nước giúp tôi nhận ra điều đó",
-  word: "★",
-  mean: "chọn cụm đúng vị trí ★",
-  options: ["出会えない","交流したことで","国にいては","様々な文化や価値観を持つ人と"],
-  correct: 2
-},
+        // ===== FUNCTIONS =====
 
-{
-  section: "問題9 次の文章を読んで、（48）から（51）に入る最もよいものを選びなさい｡",
-  sentence: "",
-  vi: "Có người nói rằng nếu món ăn đẹp mắt thì việc ăn uống cũng thú vị hơn",
-  word: "（48）",
-  mean: "điền phù hợp",
-  options: ["多いとします","多かったとします","多いでしょう","多かったでしょう"],
-  correct: 2
-},
-{
-  sentence: "",
-  vi: "Thực ra, gần đây người ta phát hiện rằng hình thức món ăn không chỉ ảnh hưởng trước khi ăn",
-  word: "（49）",
-  mean: "liên từ",
-  options: ["実は","確かに","しかも","ところが"],
-  correct: 0
-},
-{
-  sentence: "",
-  vi: "Thông tin từ mắt thậm chí ảnh hưởng đến cách cảm nhận vị khi ăn",
-  word: "（50）",
-  mean: "mức độ ảnh hưởng",
-  options: ["にのみ","にまで","に限らず","に比べて"],
-  correct: 1
-},
-{
-  sentence: "",
-  vi: "Có lẽ vì điều đó được hiểu theo cảm giác nên mới có cách nói 'thưởng thức bằng mắt'",
-  word: "（51）",
-  mean: "suy đoán",
-  options: [
-    "なったにすぎません",
-    "なったはずがありません",
-    "なったとはいえません",
-    "になったのかもしれません"
-  ],
-  correct: 3
-}
-  
-];
-// ===== FUNCTIONS =====
+        function highlight(text, word, mean) {
+            if (!text) return "";
+            return text.replace(word, `<span class="highlight" data-mean="${mean}">${word}</span>`);
+        }
 
-function highlight(text, word, mean){
-  if(!text) return "";
-  return text.replace(word, `<span class="highlight" data-mean="${mean}">${word}</span>`);
-}
+        function render() {
+            let html = "";
+            let currentSection = "";
 
-function render(){
-  let html = "";
-  let currentSection = "";
+            data.forEach((q, i) => {
+                let number = i + 1;
 
-  data.forEach((q,i)=>{
-    let number = i+1;
+                if (q.section && q.section !== currentSection) {
+                    currentSection = q.section;
+                    html += `<h5 class="mt-4 mb-3">${q.section}</h5>`;
+                }
 
-    // section
-    if(q.section && q.section !== currentSection){
-      currentSection = q.section;
-      html += `<h5 class="mt-4 mb-3">${q.section}</h5>`;
-    }
-
-    // reading 問題9
-    if(q.section && q.section.includes("問題9") && !html.includes("reading9")){
+                // reading 問題9
+                if(q.section && q.section.includes("問題9") && !html.includes("reading9")){
       html += `
       <div id="reading9" class="reading">
       <b>目で味わう</b><br><br>
@@ -695,8 +628,7 @@ function render(){
       </div>`;
     }
 
-    // question
-    html += `
+                html += `
     <div class="card-q">
       <div class="sentence" data-vi="${q.vi}">
         <span class="number">${number}</span>
@@ -704,74 +636,86 @@ function render(){
       </div>
 
       <div class="row g-2">
-        ${q.options.map((opt,index)=>`
-          <div class="col-12 col-md-6">
+        ${q.options.map((opt, index) => `
+          <div class="col-12">
             <label class="option d-flex align-items-center" id="q${i}_${index}">
-<input type="radio" name="q${i}" value="${index}" onchange="checkOne(${i})">              ${index+1}. ${opt}
+              <input type="radio" name="q${i}" value="${index}" onchange="checkOne(${i})">
+              ${index + 1}. ${opt}
             </label>
           </div>
         `).join("")}
       </div>
     </div>
     `;
-  });
+            });
 
-  document.getElementById("quiz").innerHTML = html;
-}
-function checkOne(i){
-  let q = data[i];
-  let selected = document.querySelector(`input[name="q${i}"]:checked`);
+            document.getElementById("quiz").innerHTML = html;
+        }
 
-  q.options.forEach((_,index)=>{
-    document.getElementById(`q${i}_${index}`)
-      .classList.remove("correct","wrong");
-  });
+        function checkOne(i) {
+            let q = data[i];
+            let selected = document.querySelector(`input[name="q${i}"]:checked`);
 
-  if(selected){
-    let val = Number(selected.value);
+            q.options.forEach((_, index) => {
+                document.getElementById(`q${i}_${index}`)
+                    .classList.remove("correct", "wrong");
+            });
 
-    q.options.forEach((_,index)=>{
-      let el = document.getElementById(`q${i}_${index}`);
+            if (selected) {
+                let val = Number(selected.value);
 
-      if(index === q.correct) el.classList.add("correct");
-      if(index === val && index !== q.correct) el.classList.add("wrong");
+                q.options.forEach((_, index) => {
+                    let el = document.getElementById(`q${i}_${index}`);
+
+                    if (index === q.correct) el.classList.add("correct");
+                    if (index === val && index !== q.correct) el.classList.add("wrong");
+                });
+            }
+        }
+
+        function check() {
+    let wrongCount = 0;
+    let unanswered = 0;
+
+    data.forEach((q, i) => {
+        let selected = document.querySelector(`input[name="q${i}"]:checked`);
+        if (!selected) {
+            unanswered++;
+        }
+
+        q.options.forEach((_, index) => {
+            let el = document.getElementById(`q${i}_${index}`);
+            el.classList.remove("correct", "wrong");
+
+            if (index === q.correct) el.classList.add("correct");
+            if (selected && index === Number(selected.value) && index !== q.correct) el.classList.add("wrong");
+        });
+
+        // Tăng số câu sai nếu đã chọn nhưng chọn sai
+        if (selected && Number(selected.value) !== q.correct) {
+            wrongCount++;
+        }
     });
-  }
-}
-function check(){
-  data.forEach((q,i)=>{
-    let selected = document.querySelector(`input[name="q${i}"]:checked`);
 
-    q.options.forEach((_,index)=>{
-      document.getElementById(`q${i}_${index}`)
-        .classList.remove("correct","wrong");
-    });
-
-    if(selected){
-      let val = Number(selected.value);
-
-      q.options.forEach((_,index)=>{
-        let el = document.getElementById(`q${i}_${index}`);
-
-        if(index === q.correct) el.classList.add("correct");
-        if(index === val && index !== q.correct) el.classList.add("wrong");
-      });
-    }
-  });
+    // Hiển thị kết quả
+    const resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = `
+        <b>Kết quả:</b> ${wrongCount} câu sai, ${unanswered} câu chưa làm, ${data.length - wrongCount - unanswered} câu đúng.
+    `;
 }
 
-function resetAll(){
-  document.querySelectorAll("input").forEach(e=>e.checked=false);
-  document.querySelectorAll(".option").forEach(e=>{
-    e.classList.remove("correct","wrong");
-  });
-}
+        function resetAll() {
+            document.querySelectorAll("input").forEach(e => e.checked = false);
+            document.querySelectorAll(".option").forEach(e => {
+                e.classList.remove("correct", "wrong");
+            });
+        }
 
-render();
-</script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-
+        render();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 
 </body>
+
 </html>
