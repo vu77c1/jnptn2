@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- MOBILE TO HƠN -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3">
+
+    <title>JLPT N2</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container py-4">
+
+        <!-- ===== MENU LUYỆN THI N2 ===== -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+            <div class="container">
+                <a class="navbar-brand" href="#">JLPT N2</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarN2"
+                    aria-controls="navbarN2" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarN2">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <!-- 2025 với dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="n2_2025" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                2025
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="n2_2025">
+                                <li><a class="dropdown-item" href="n2-12-2025.html">12/2025</a></li>
+                                <li><a class="dropdown-item" href="index.html">7/2025</a></li>
+                            </ul>
+                        </li>
+                         <!-- 2024 với dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="n2_2024" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                2024
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="n2_2024">
+                                <li><a class="dropdown-item" href="n2-12-2024.html">12/2024</a></li>
+                                <li><a class="dropdown-item" href="n2-7-2024.html">7/2024</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Các năm khác -->
+                        <li class="nav-item"><a class="nav-link" href="n2_2024.html">2024</a></li>
+                        <li class="nav-item"><a class="nav-link" href="n2_2023.html">2023</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <h3 class="mb-4 text-center">JLPT N2 - 7/2024</h3>
+
+        <div id="quiz"></div>
+
+        <div class="text-center mt-4">
+            <button class="btn btn-success" onclick="check()">Xem đáp án</button>
+            <button class="btn btn-secondary ms-2" onclick="resetAll()">Làm lại</button>
+            <div class="text-center mt-3" id="result"></div>
+
+        </div>
+
+    </div>
+    <!-- Thêm ngay trước </body> -->
+    <!-- Nút Back to Top -->
+    <button id="backToTop" title="Back to top" style="
+  display:none;
+  position:fixed;
+  bottom:40px;
+  right:40px;
+  z-index:99;
+  font-size:18px;
+  border:none;
+  outline:none;
+  background:#0d6efd;
+  color:white;
+  cursor:pointer;
+  padding:12px 18px;
+  border-radius:8px;
+">↑ Top</button>
+
+    <script>
+        // Hiển thị nút khi scroll xuống
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            let btn = document.getElementById("backToTop");
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        }
+
+        // Khi click, scroll về đầu trang
+        document.getElementById("backToTop").addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        // ===== DATA GIỮ NGUYÊN =====
+        const data = [
+    // ===== 問題1 =====
+    {
+        section: "問題1 ___の言葉の読み方として最もよいものを選びなさい｡",
+        sentence: "状況を詳細に書いてください｡",
+        vi: "",
+        word: "詳細",
+        mean: "",
+        options: ["そうざい", "そうさい", "しょうざい", "しょうさい"],
+        correct: 3
+    },
+    {
+        sentence: "分析には少し時間がかかります｡",
+        vi: "",
+        word: "分析",
+        mean: "",
+        options: ["ぶんせき", "ぶんかい", "ぶんせつ", "ぶんかつ"],
+        correct: 0
+    },
+    {
+        sentence: "髪の毛が絡まってしまった｡",
+        vi: "",
+        word: "絡まって",
+        mean: "",
+        options: ["はさまって", "からまって", "つまって", "たまって"],
+        correct: 1
+    },
+    {
+        sentence: "ここでは農薬をまったく使わずに野菜を栽培している｡",
+        vi: "",
+        word: "農薬",
+        mean: "",
+        options: ["のんやく", "のうやく", "のうらく", "のんらく"],
+        correct: 1
+    },
+    {
+        sentence: "とても鮮やかだったことを覚えています｡",
+        vi: "",
+        word: "鮮やか",
+        mean: "",
+        options: ["おだやか", "さわやか", "あざやか", "なごやか"],
+        correct: 2
+    },
+
+    // ===== 問題2 =====
+    {
+        section: "問題2 ___の言葉を漢字で書くとき、最もよいものを選びなさい｡",
+        sentence: "この会社をしぼうした理由を教えてください｡",
+        vi: "",
+        word: "しぼう",
+        mean: "",
+        options: ["希望", "志望", "指望", "貴望"],
+        correct: 1
+    },
+    {
+        sentence: "あの作家のたんぺん小説は、とても面白い｡",
+        vi: "",
+        word: "たんぺん",
+        mean: "",
+        options: ["短編", "単編", "短遍", "単遍"],
+        correct: 0
+    },
+    {
+        sentence: "桜の花がちっていくのを眺める｡",
+        vi: "",
+        word: "ちって",
+        mean: "",
+        options: ["消って", "去って", "散って", "失って"],
+        correct: 2
+    },
+    {
+        sentence: "このセーターにはとてもやわらかい毛糸が使われている｡",
+        vi: "",
+        word: "やわらかい",
+        mean: "",
+        options: ["伸らかい", "軽らかい", "暖らかい", "柔らかい"],
+        correct: 3
+    },
+    {
+        sentence: "最近あまり体調がよくないのは、ひろうのせいだろう｡",
+        vi: "",
+        word: "ひろう",
+        mean: "",
+        options: ["疲労", "病労", "疲老", "病老"],
+        correct: 0
+    },
+
+    // ===== 問題3 =====
+    {
+        section: "問題3 （ ）に入れるのに最もよいものを選びなさい｡",
+        sentence: "しょうゆの（　）原料は大豆です｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["主", "要", "正", "本"],
+        correct: 0
+    },
+    {
+        sentence: "子どもたちの読書（　）が進んでいるらしい｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["抜け", "逃げ", "別れ", "離れ"],
+        correct: 3
+    },
+    {
+        sentence: "経営の方針については、社長が決定（　）を持っている｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["任", "手", "権", "裁"],
+        correct: 2
+    },
+
+    // ===== 問題4 =====
+    {
+        section: "問題4 （ ）に入れるのに最もよいものを選びなさい｡",
+        sentence: "両親はおいしい料理で客を（　）のが好きだ｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["もてなす", "おだてる", "許す", "救う"],
+        correct: 0
+    },
+    {
+        sentence: "その駅は各駅停車の電車は止まりますが、急行電車は（　）｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["温厚", "直進", "通過", "横断"],
+        correct: 2
+    },
+    {
+        sentence: "見た人の記憶に残るような（　）のあるポスターにしたい｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["インパクト", "プレッシャー", "チャージ", "ショック"],
+        correct: 0
+    },
+    {
+        sentence: "地元の選手がオリンピックでメダルを獲得したことがテレビで（　）された｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["通信", "普及", "伝言", "報道"],
+        correct: 3
+    },
+    {
+        sentence: "台風で電車が運休になり、通勤や通学で利用する人に（　）影響を与えた｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["大まかな", "偉大な", "大げさな", "多大な"],
+        correct: 3
+    },
+    {
+        sentence: "西川さんは転校してきたばかりだが、友達もできて、もうすっかりクラスに（　）ている｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["当てはまって", "溶け込んで", "結びついて", "触れ合って"],
+        correct: 1
+    },
+    {
+        sentence: "私は（　）性格なので、時々財布を持たずに買い物に出かけてしまうことがある｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["あつかましい", "うっとうしい", "そそっかしい", "さわがしい"],
+        correct: 2
+    },
+
+    // ===== 問題5 =====
+    {
+        section: "問題5 ___の言葉に意味が最も近いものを選びなさい｡",
+        sentence: "出張の日程はおおよそ決まりました｡",
+        vi: "",
+        word: "おおよそ",
+        mean: "",
+        options: ["だいたい", "すべて", "やっと", "もう"],
+        correct: 0
+    },
+    {
+        sentence: "彼女はとても行儀がいい｡",
+        vi: "",
+        word: "行儀",
+        mean: "",
+        options: ["アイデア", "サービス", "マナー", "イメージ"],
+        correct: 2
+    },
+    {
+        sentence: "中西さんはいつも威張っている｡",
+        vi: "",
+        word: "威張っている",
+        mean: "",
+        options: ["眠そうにして", "偉そうにして", "暇そうにして", "嫌そうにして"],
+        correct: 1
+    },
+    {
+        sentence: "使わない物は、ここに収納してください｡",
+        vi: "",
+        word: "収納",
+        mean: "",
+        options: ["並べて", "捨てて", "預けて", "しまって"],
+        correct: 3
+    },
+    {
+        sentence: "横山さんは不平を言うことが多い｡",
+        vi: "",
+        word: "不平",
+        mean: "",
+        options: ["冗談", "文句", "うそ", "わがまま"],
+        correct: 1
+    },
+
+    // ===== 問題6 =====
+    {
+        section: "問題6 次の言葉の使い方として最も近いものを選びなさい｡",
+        sentence: "共有",
+        vi: "",
+        word: "共有",
+        mean: "",
+        options: [
+            "市民ボランティアの共有で、留学生のスピーチコンテストが行われた｡",
+            "大学と企業が共有で新しい技術の研究を行っている｡",
+            "これらの事件には、発生場所に共有の特徴があることが分かった｡",
+            "結婚してから購入した物は、夫婦の共有の財産になる。"
+        ],
+        correct: 3
+    },
+    {
+        sentence: "鋭い",
+        vi: "",
+        word: "鋭い",
+        mean: "",
+        options: [
+            "動物たちが自然界で生きていくためには、鋭い感覚が必要だ｡",
+            "弟は記憶が鋭くて、本に載っているたくさんの国名や国旗をすぐに覚えた｡",
+            "赤ちゃんの肌は鋭いから、少しの刺激で赤くなってしまう｡",
+            "運動の能力が鋭い人は、どんなスポーツでもすぐに上達する。"
+        ],
+        correct: 0
+    },
+    {
+        sentence: "はきはき",
+        vi: "",
+        word: "はきはき",
+        mean: "",
+        options: [
+            "よく眠ったので、今日は頭がはきはきとしている｡",
+            "ビルの屋上から、遠くの山がはきはきと見える｡",
+            "その学生は、聞かれたことにはきはきと答えた｡",
+            "ミスの原因をはきはきとさせるために、調査が行われた。"
+        ],
+        correct: 2
+    },
+    {
+        sentence: "鑑賞",
+        vi: "",
+        word: "鑑賞",
+        mean: "",
+        options: [
+            "学校の授業で、工場へ行って自動車を組み立てる様子を鑑賞した｡",
+            "中学生のとき、市のコンサートホールでクラシック音楽を鑑賞した｡",
+            "資料を読んで、自然を守るための国の活動について鑑賞した｡",
+            "レストランで、素材の良さを生かした料理を舌でじっくり鑑賞した。"
+        ],
+        correct: 1
+    },
+    {
+        sentence: "着々",
+        vi: "",
+        word: "着々",
+        mean: "",
+        options: [
+            "ベランダが着々と古くなって危険なので、修理することにした｡",
+            "ゲームに夢中になっていたら、時間が着々とたっていた｡",
+            "来週のパーティーの準備は着々と進んでいるようだ｡",
+            "夕方になって、外は着々と涼しくなって生きている。"
+        ],
+        correct: 2
+    },
+
+    // ===== 問題7 =====
+    {
+        section: "問題7 次の文の（ ）に入れるのに最もよいものを選びなさい｡",
+        sentence: "卓球クラブの山谷さんは大きな大会で何度も優勝しているのに「私（　）まだまだですよ」といつも言っている｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["まで", "さえ", "ばかり", "なんか"],
+        correct: 3
+    },
+    {
+        sentence: "携帯電話を一人一台持つのは当たり前と言われる現代で、私のように携帯電話なしで生活している人は（　）いるのだろうか｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["どうも", "どれほど", "どうしても", "どんなに"],
+        correct: 1
+    },
+    {
+        sentence: "花山市では、きゅうりやトマト なす（　）夏の野菜が多く生産されている｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["とする", "に関する", "といった", "にそった"],
+        correct: 2
+    },
+    {
+        sentence: "彼とは数年前に先輩の結婚式で（　）、ずっと会っていなかった｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["会ったきりだ", "会ったばかりか", "会っただけに", "合ったところ"],
+        correct: 0
+    },
+    {
+        sentence: "家の近所に子供向けのダンススクールができるらしい。オープンしたら、娘を体験レッスンに（　）と話している｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["参加してみようか", "参加させてみようか", "参加してみてよかった", "参加させてみてよかった"],
+        correct: 1
+    },
+    {
+        sentence: "（カメラ屋で）</br>客：「カメラを海に落としてしまって、電源が入らないんです。中に水が入ってしまったようなのですが...」｡</br>店員：「海水が入った（ ）、修理は難しいかもしれませんが、一応見てみますね」",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["のであれば", "ことであれば", "のであって", "ことであって"],
+        correct: 0
+    },
+    {
+        sentence: "母：「引っ越しまでまだ時間はあるけど、直前になってあわてないように（ ）。荷物の整理も進めておきなさい。」</br>息子：「うん、分かった。」",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["しだけでいいのに", "少しだけならよくでも", "少しずつやっておこう", "少しずつならよくて"],
+        correct: 2
+    },
+    {
+        sentence: "1896年の第1回オリンピックに参加した国と地域の数は14だったが、2004年には200を超える（ ）｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["べきだった", "つもりだった", "ほかなかった", "までになった"],
+        correct: 3
+    },
+    {
+        sentence: "チームでの仕事をスムーズに進めるには、メンバー同士の十分なコミュニケーション（ ）｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["にすぎない", "が欠かせない", "のおかげだ", "とのことだ"],
+        correct: 1
+    },
+    {
+        sentence: "昨日、新しいできた遊園地に行った。電車より車のほうが早いだろうと思って車で行ったら、ひどい渋滞でかえって時間がかかってしまった。やはり電車で（ ）｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["行けばよかった", "行くはずだった", "行かなくて済んだ", "行きたくてしかたがなかった"],
+        correct: 0
+    },
+    {
+        sentence: "駅前に新しくできたカフェに友達を誘って行ってみたら、定休日だった。事前に確認しておく（ ）｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["しかなかった", "ほどではなかった", "べきだった", "せいだった"],
+        correct: 2
+    },
+    {
+        sentence: "（電話で）</br>A：「お電話ありがとうございます。建設営業課でございます」</br>B：「高橋さんはいらっしゃいますか。」</br>A：「失礼ですが、お名前を（ ）。」",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["伺ったらいかがでしょうか", "伺ってもよろしいでしょうか", "お伝えしたらいかがでしょうか", "お伝えしてもよろしいでしょうか"],
+        correct: 1
+    },
+
+    // ===== 問題8 =====
+    {
+        section: "問題8 次の文の＿★＿に入る最もよいものを選びなさい｡",
+        sentence: "「さわら」という魚は、漢字で「鰆」と書く ___ ★ ___ ___ 魚の一つです｡",
+        vi: "",
+        word: "★",
+        mean: "",
+        options: ["ように", "わかる｡", "ことから", "春を代表する"],
+        correct: 1
+    },
+    {
+        sentence: "会議での西山さんのプレゼンは、普段はなかなか___ ___ ★ ___素晴らしかった｡",
+        vi: "",
+        word: "★",
+        mean: "",
+        options: ["ぐらい", "部長が", "慰める", "褒めることがない"],
+        correct: 2
+    },
+    {
+        sentence: "同じ高温 ___ ___ ★ ___ は大きく変わる｡",
+        vi: "",
+        word: "★",
+        mean: "",
+        options: ["感じ方", "でも", "温度や風の強さなど", "によって"],
+        correct: 3
+    },
+    {
+        sentence: "「山川大学アニメ研究会」は ___ ___ ★ ___ できた団体です｡",
+        vi: "",
+        word: "★",
+        mean: "",
+        options: ["学生が", "集まって", "アニメが", "好きでたまらないという"],
+        correct: 0
+    },
+    {
+        sentence: "X会社の今井先輩は、自分はミスが多いといつも言っているが、___ ___ ★ ___ ように見える｡",
+        vi: "",
+        word: "★",
+        mean: "",
+        options: ["新人で", "何でも完璧にできている", "私からすると", "わからないことばかりの"],
+        correct: 2
+    },
+
+    // ===== 問題9 =====
+    {
+        section: "問題9 次の文章を読んで、（48）から（51）に入る最もよいものを選びなさい｡",
+        sentence: "",
+        vi: "",
+        word: "（48）",
+        mean: "",
+        options: ["そこの紅葉", "そんな紅葉", "そちら", "紅葉"],
+        correct: 1
+    },
+    {
+        sentence: "",
+        vi: "",
+        word: "（49）",
+        mean: "",
+        options: ["結局", "確かに", "しかし", "つまり"],
+        correct: 2
+    },
+    {
+        sentence: "",
+        vi: "",
+        word: "（50）",
+        mean: "",
+        options: ["始まらないのです", "始まらないためです", "始まらないのでしょうか", "始まらないためでしょうか"],
+        correct: 0
+    },
+    {
+        sentence: "",
+        vi: "",
+        word: "（51）",
+        mean: "",
+        options: [
+            "感じているからだと思います",
+            "感じられるところだと思います",
+            "感じさせることができました",
+            "感じるようになりました"
+        ],
+        correct: 3
+    }
+]
+
+        // ===== FUNCTIONS =====
+
+        function highlight(text, word, mean) {
+            if (!text) return "";
+            return text.replace(word, `<span class="highlight" data-mean="${mean}">${word}</span>`);
+        }
+
+        function render() {
+            let html = "";
+            let currentSection = "";
+
+            data.forEach((q, i) => {
+                let number = i + 1;
+
+                if (q.section && q.section !== currentSection) {
+                    currentSection = q.section;
+                    html += `<h5 class="mt-4 mb-3">${q.section}</h5>`;
+                }
+
+                // reading 問題9
+                if (q.section && q.section.includes("問題9") && !html.includes("reading9")) {
+                    html += `
+      <div id="reading9" class="reading">
+        <b>以下は、留学生がスピーチのために書いた文章である｡</b></br>
+<b>紅葉の異変</b></br>
+<b>サリムソフィア</b></br>
+私は日本の秋の景色が好きです。秋になって紅葉が始まり、緑だった葉が黄色やオレンジ、
+赤に変わると、とてもきれいです。秋の紅葉は、日本の四季の変化を感じさせてくれるもの
+です｡</br>
+（ 48 ）ですが、先日テレビで、紅葉がピークを迎える時期が年々遅くなっているというニ
+ュースを見ました。中には、1月になってからピークを迎えたところもあるそうで、驚きまし
+た。温暖化によって平均気温が上昇していることが大きな原因だそうです。私は、夏が過ぎ
+て気温が下がってくれば、必ず紅葉が始まると思っていました。（ 49 ）、そうではありま
+せんでした。紅葉には、条件となる気温の変化がありました｡</br>
+葉の変色が始まるのは、1日の最低気温が大体8度以下になってからです。秋になっても、最
+低気温が一定の気温まで下がらなければ、紅葉は（ 50 ）。その後、さらに寒くなり、5 ~6
+度まで下がると、紅葉は一気に進みます。また、5度以下の日が続くと、最も美しい紅葉が見
+られるといわれています｡</br>
+紅葉に起きている異変を知り、このまま温暖化が進むと、日本の秋の景色が変わってしまう
+可能性もあるのではないかと思いました。もしかしたら、紅葉自体が見られなくなる日も来
+るかもしれません。紅葉を通して、温暖化が身近な問題であることをより強く（ 51 ）。
+                </div>`;
+                }
+
+                html += `
+    <div class="card-q">
+      <div class="sentence" data-vi="${q.vi}">
+        <span class="number">${number}</span>
+        ${highlight(q.sentence, q.word, q.mean)}
+      </div>
+
+      <div class="row g-2">
+        ${q.options.map((opt, index) => `
+          <div class="col-12">
+            <label class="option d-flex align-items-center" id="q${i}_${index}">
+              <input type="radio" name="q${i}" value="${index}" onchange="checkOne(${i})">
+              ${index + 1}. ${opt}
+            </label>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+    `;
+            });
+
+            document.getElementById("quiz").innerHTML = html;
+        }
+
+        function checkOne(i) {
+            let q = data[i];
+            let selected = document.querySelector(`input[name="q${i}"]:checked`);
+
+            q.options.forEach((_, index) => {
+                document.getElementById(`q${i}_${index}`)
+                    .classList.remove("correct", "wrong");
+            });
+
+            if (selected) {
+                let val = Number(selected.value);
+
+                q.options.forEach((_, index) => {
+                    let el = document.getElementById(`q${i}_${index}`);
+
+                    if (index === q.correct) el.classList.add("correct");
+                    if (index === val && index !== q.correct) el.classList.add("wrong");
+                });
+            }
+        }
+
+        function check() {
+            let wrongCount = 0;
+            let unanswered = 0;
+
+            data.forEach((q, i) => {
+                let selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (!selected) {
+                    unanswered++;
+                }
+
+                q.options.forEach((_, index) => {
+                    let el = document.getElementById(`q${i}_${index}`);
+                    el.classList.remove("correct", "wrong");
+
+                    if (index === q.correct) el.classList.add("correct");
+                    if (selected && index === Number(selected.value) && index !== q.correct) el.classList.add("wrong");
+                });
+
+                // Tăng số câu sai nếu đã chọn nhưng chọn sai
+                if (selected && Number(selected.value) !== q.correct) {
+                    wrongCount++;
+                }
+            });
+
+            // Hiển thị kết quả
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `
+        <b>Kết quả:</b> ${wrongCount} câu sai, ${unanswered} câu chưa làm, ${data.length - wrongCount - unanswered} câu đúng.
+    `;
+        }
+
+        function resetAll() {
+            document.querySelectorAll("input").forEach(e => e.checked = false);
+            document.querySelectorAll(".option").forEach(e => {
+                e.classList.remove("correct", "wrong");
+            });
+        }
+
+        render();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

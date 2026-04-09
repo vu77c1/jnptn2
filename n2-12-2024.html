@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- MOBILE TO HƠN -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3">
+
+    <title>JLPT N2</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="container py-4">
+
+        <!-- ===== MENU LUYỆN THI N2 ===== -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+            <div class="container">
+                <a class="navbar-brand" href="#">JLPT N2</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarN2"
+                    aria-controls="navbarN2" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarN2">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <!-- 2025 với dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="n2_2025" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                2025
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="n2_2025">
+                                <li><a class="dropdown-item" href="n2-12-2025.html">12/2025</a></li>
+                                <li><a class="dropdown-item" href="index.html">7/2025</a></li>
+                            </ul>
+                        </li>
+                         <!-- 2024 với dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="n2_2024" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                2024
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="n2_2024">
+                                <li><a class="dropdown-item" href="n2-12-2024.html">12/2024</a></li>
+                                <li><a class="dropdown-item" href="n2-7-2024.html">7/2024</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Các năm khác -->
+                        <li class="nav-item"><a class="nav-link" href="n2_2024.html">2024</a></li>
+                        <li class="nav-item"><a class="nav-link" href="n2_2023.html">2023</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <h3 class="mb-4 text-center">JLPT N2 - 12/2024</h3>
+
+        <div id="quiz"></div>
+
+        <div class="text-center mt-4">
+            <button class="btn btn-success" onclick="check()">Xem đáp án</button>
+            <button class="btn btn-secondary ms-2" onclick="resetAll()">Làm lại</button>
+            <div class="text-center mt-3" id="result"></div>
+
+        </div>
+
+    </div>
+    <!-- Thêm ngay trước </body> -->
+    <!-- Nút Back to Top -->
+    <button id="backToTop" title="Back to top" style="
+  display:none;
+  position:fixed;
+  bottom:40px;
+  right:40px;
+  z-index:99;
+  font-size:18px;
+  border:none;
+  outline:none;
+  background:#0d6efd;
+  color:white;
+  cursor:pointer;
+  padding:12px 18px;
+  border-radius:8px;
+">↑ Top</button>
+
+    <script>
+        // Hiển thị nút khi scroll xuống
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            let btn = document.getElementById("backToTop");
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                btn.style.display = "block";
+            } else {
+                btn.style.display = "none";
+            }
+        }
+
+        // Khi click, scroll về đầu trang
+        document.getElementById("backToTop").addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        // ===== DATA GIỮ NGUYÊN =====
+        const data = [
+    // ===== 問題1 =====
+    {
+        section: "問題1 ___の言葉の読み方として最もよいものを選びなさい｡",
+        sentence: "山本さんは優秀な社員だ｡",
+        vi: "",
+        word: "優秀",
+        mean: "",
+        options: ["ゆしゅう", "ゆうしゅ", "ゆしゅ", "ゆうしゅう"],
+        correct: 3
+    },
+    {
+        sentence: "そんなことを言われたら、私も迷ったに違いない｡",
+        vi: "",
+        word: "迷った",
+        mean: "",
+        options: ["あやまった", "あせった", "まよった", "うたがった"],
+        correct: 2
+    },
+    {
+        sentence: "今から行うのは背骨を伸ばす体操です｡",
+        vi: "",
+        word: "背骨",
+        mean: "",
+        options: ["せいこつ", "せこつ", "せいぼね", "せぼね"],
+        correct: 3
+    },
+    {
+        sentence: "すぐに実践できるとは思っていなかった｡",
+        vi: "",
+        word: "実践",
+        mean: "",
+        options: ["じっせん", "じっけん", "じっぜん", "じっげん"],
+        correct: 0
+    },
+    {
+        sentence: "彼はコンサートで派手な衣装を着ていた｡",
+        vi: "",
+        word: "衣装",
+        mean: "",
+        options: ["いそう", "いしょう", "いじょう", "ゆうしゅう"],
+        correct: 1
+    },
+
+    // ===== 問題2 =====
+    {
+        section: "問題2 ___の言葉を漢字で書くとき、最もよいものを選びなさい｡",
+        sentence: "けいびをもっと厳しくしたほうがいい｡",
+        vi: "",
+        word: "けいび",
+        mean: "",
+        options: ["警護", "係備", "警備", "係護"],
+        correct: 2
+    },
+    {
+        sentence: "安全な場所にひなんをしてください｡",
+        vi: "",
+        word: "ひなん",
+        mean: "",
+        options: ["被離", "避離", "被難", "避難"],
+        correct: 3
+    },
+    {
+        sentence: "先祖をうやまう心を大切にしたい｡",
+        vi: "",
+        word: "うやまう",
+        mean: "",
+        options: ["拝う", "敬う", "礼う", "尊う"],
+        correct: 1
+    },
+    {
+        sentence: "パソコン教室のじゅこうの申し込みをした｡",
+        vi: "",
+        word: "じゅこう",
+        mean: "",
+        options: ["受講", "授講", "受校", "授校"],
+        correct: 0
+    },
+    {
+        sentence: "あの人は本当にあつかましい人だ｡",
+        vi: "",
+        word: "あつかましい",
+        mean: "",
+        options: ["圧かましい", "厚かましい", "熱かましい", "暑かましい"],
+        correct: 1
+    },
+
+    // ===== 問題3 =====
+    {
+        section: "問題3 （ ）に入れるのに最もよいものを選びなさい｡",
+        sentence: "中村選手は日本を代表する（　）選手だ｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["高", "優", "名", "真"],
+        correct: 2
+    },
+    {
+        sentence: "今日は月が地球に（　）接近する日なので、常の満月より大きく見えます｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["特", "最", "極", "激"],
+        correct: 1
+    },
+    {
+        sentence: "家のポストに私（　）の手紙が入っていた｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["宛て", "着き", "届け", "便り"],
+        correct: 0
+    },
+
+    // ===== 問題4 =====
+    {
+        section: "問題4 （ ）に入れるのに最もよいものを選びなさい｡",
+        sentence: "会員の登録が（　）したので、今からサービスを利用できます｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["決着", "完了", "終業", "到達"],
+        correct: 1
+    },
+    {
+        sentence: "年を取って運動をしなくなると、筋肉がだんだん（　）いきます｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["潰れて", "欠けて", "尽きて", "衰えて"],
+        correct: 3
+    },
+    {
+        sentence: "会議時間が残り少なくなったので、資料の詳細な説明は（　）して、要点のみを説明した｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["減量", "休止", "節約", "省略"],
+        correct: 3
+    },
+    {
+        sentence: "この小説はフィクションだと（　）いたが、実際にあった話らしい｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["思い込んで", "思い起こして", "考え抜いて", "考えついて"],
+        correct: 0
+    },
+    {
+        sentence: "山口さんは、子どもが怖がらないように優しい（　）で話しかけた｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["音声", "口調", "顔色", "内心"],
+        correct: 1
+    },
+    {
+        sentence: "部下に仕事を教えるのは、上司の（　）の一つだ｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["労働", "勤務", "役目", "当番"],
+        correct: 2
+    },
+    {
+        sentence: "森さんは外食のとき、いつも誰かに払ってもらおうとするので、（　）人だと思う｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["みずみずしい", "たどたどしい", "ずうずうしい", "よわよわしい"],
+        correct: 2
+    },
+
+    // ===== 問題5 =====
+    {
+        section: "問題5 ___の言葉に意味が最も近いものを選びなさい｡",
+        sentence: "佐藤さんがガイドしてくれました｡",
+        vi: "",
+        word: "ガイド",
+        mean: "",
+        options: ["案内", "解決", "応援", "準備"],
+        correct: 0
+    },
+    {
+        sentence: "この表現は修正したほうがいいですよ｡",
+        vi: "",
+        word: "修正",
+        mean: "",
+        options: ["調べた", "覚えた", "直した", "使った"],
+        correct: 2
+    },
+    {
+        sentence: "徐々に会社に慣れてきた｡",
+        vi: "",
+        word: "徐々に",
+        mean: "",
+        options: ["ずいぶん", "いつのまにか", "やっと", "次第に"],
+        correct: 3
+    },
+    {
+        sentence: "青いペンキがはげている｡",
+        vi: "",
+        word: "はげている",
+        mean: "",
+        options: ["取れて", "ついて", "乾いて", "こぼれて"],
+        correct: 0
+    },
+    {
+        sentence: "彼女のあのしぐさは印象的だった｡",
+        vi: "",
+        word: "しぐさ",
+        mean: "",
+        options: ["考え", "動作", "着装", "言葉"],
+        correct: 1
+    },
+
+    // ===== 問題6 =====
+    {
+        section: "問題6 次の言葉の使い方として最も近いものを選びなさい｡",
+        sentence: "薄める",
+        vi: "",
+        word: "薄める",
+        mean: "",
+        options: [
+            "私には難しすぎたので、コースのレベルを薄めた｡",
+            "部屋が暑かったので、エアコンをつけて温度を薄めた｡",
+            "スープがしょっぱかったので、水を加えて味を薄めた｡",
+            "うるさいと言われたので、テレビの音量を薄めた。"
+        ],
+        correct: 2
+    },
+    {
+        sentence: "充実",
+        vi: "",
+        word: "充実",
+        mean: "",
+        options: [
+            "今日の午後は雨の予報で、空には雲が充実している｡",
+            "今はやりがいのある仕事ができて、毎日が充実している｡",
+            "喫茶店の中は、コーヒーのにおいが充実している｡",
+            "計画を実行するためには、まだ問題が充実している。"
+        ],
+        correct: 1
+    },
+    {
+        sentence: "鮮明",
+        vi: "",
+        word: "鮮明",
+        mean: "",
+        options: [
+            "次回のセミナーの開催日はまだ鮮明に決まっていない｡",
+            "できそうにない仕事は鮮明に断ったほうがいい｡",
+            "X社の製品のほうが性能が鮮明に優れている｡",
+            "あのときの出来事は今でも鮮明に覚えている。"
+        ],
+        correct: 3
+    },
+    {
+        sentence: "ふもと",
+        vi: "",
+        word: "ふもと",
+        mean: "",
+        options: [
+            "明日、駅のふもとで池田さんと会う約束をした｡",
+            "あのビルのふもとに、新しいお店ができるらしい｡",
+            "山のふもとに車を止めて、そこから登りましょう｡",
+            "ドアのふもとに猫がいて、開けることができない。"
+        ],
+        correct: 2
+    },
+    {
+        sentence: "定年",
+        vi: "",
+        word: "定年",
+        mean: "",
+        options: [
+            "私の会社は６０歳が定年なので、あと半年で退職だ｡",
+            "この乗り物は子ども向けのため、１０歳が定年になっている｡",
+            "この国では、定年の２０歳になると選挙で投票することができる｡",
+            "犬の定年は一般的に１０歳から１５歳の間だといわれている。"
+        ],
+        correct: 0
+    },
+
+    // ===== 問題7 =====
+    {
+        section: "問題7 次の文の（ ）に入れるのに最もよいものを選びなさい｡",
+        sentence: "水泳教室に通い始めたころは、怖くて水に顔をつけること（　）できなかったが、今は泳ぐのが大好きだ｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["なら", "ほど", "さえ", "ばかり"],
+        correct: 2
+    },
+    {
+        sentence: "この作業はかなり大変なので、一日で終わらせるのは（　）無理だろう｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["つい", "まず", "たとえ", "今に"],
+        correct: 1
+    },
+    {
+        sentence: "母はいちごジャムを作るとき、いちご１００グラム（　）８０グラムの砂糖を使う｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["に対して", "に関して", "によって", "にあたって"],
+        correct: 0
+    },
+    {
+        sentence: "この図書館には、借りている本を全部（　）、ほかの本が借りられないという規則がある｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["返したすえに", "返したとはいえ", "返してはじめて", "返してからでないと"],
+        correct: 3
+    },
+    {
+        sentence: "タクシー会社を経営する青山氏は、インタビューで「お客様から感謝の言葉を（　）、人の役に立つ喜びを感じます。」と語った｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["いただくよう", "さしあげるよう", "いただくたび", "さしあげるたび"],
+        correct: 2
+    },
+    {
+        sentence: "妻は息子にどうしてもピアノを習わせたいと言っているが、私は本人が（　）無理にさせなくてもいいと思っている｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["やらされないのなら", "やりたがらないのなら", "やってほしくないのに", "やってもはじまらないのに"],
+        correct: 1
+    },
+    {
+        sentence: "この研究を始めたころは、そんなことを研究して意味が（　）批判的な意見も多かったが、最近少しずつ認めてもらえるようになってきた｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["あるというような", "あるのかというような", "あるということの", "あるのかということの"],
+        correct: 1
+    },
+    {
+        sentence: "腕のけがはまだ完全に（　）が、日常生活には困らなくなった｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["治りようがない", "治らないでもない", "治ったにすぎない", "治ったわけではない"],
+        correct: 3
+    },
+    {
+        sentence: "私は20年前に初めて富士山に登った。山頂に立ったときの感動は今でも（　）｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["忘れがたい", "忘れかけている", "忘れないといい", "忘れるおそれがある"],
+        correct: 0
+    },
+    {
+        sentence: "洗濯機に入れるときに気づいたからよかったが、もう少しで大事な領収書をズボンのポケットに入れたまま（　）｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["洗濯したようだ", "洗濯するつもりだった", "洗濯したせいだ", "洗濯するところだった"],
+        correct: 3
+    },
+    {
+        sentence: "毎晩私は、5歳の娘が寝る前にベッドで本を読んでやるのだが、読んでいるうちに自分のほうが（　）｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["寝てしまうことがある", "寝ておくことがある", "寝てしまうことにする", "寝ておくことにする"],
+        correct: 0
+    },
+    {
+        sentence: "社長として、社員全員が仕事に満足できる環境を整えたい。それは単なる理想（　）。いや、私は理想ではなく必ず実現できると信じている｡",
+        vi: "",
+        word: "（　）",
+        mean: "",
+        options: ["でしかないはずだ", "でなくてはいけないはずだ", "でしかないのだろうか", "でなくてはいけないのだろうか"],
+        correct: 2
+    },
+
+    // ===== 問題8 =====
+    {
+        section: "問題8 次の文の＿★＿に入る最もよいものを選びなさい｡",
+        sentence: "長く使っている電子レンジが壊れてしまった。古いものだし、修理に___ ___ ★ ___ 買い替えたほうがいいかもしれない｡",
+        vi: "",
+        word: "★",
+        mean: "",
+        options: ["もう", "考えると", "かかる", "費用を"],
+        correct: 1
+    },
+    {
+        sentence: "娘「今度のスピーチコンテスト、参加しようかなあ。でも、自信ないなあ。」母「チャレンジ___ ___ ★ ___ ？いい経験になると思うよ。」",
+        vi: "",
+        word: "★",
+        mean: "",
+        options: ["だけ", "みたら", "する", "して"],
+        correct: 3
+    },
+    {
+        sentence: "このドレスを着ると、___ ___ ★ ___ 気分になる｡",
+        vi: "",
+        word: "★",
+        mean: "",
+        options: ["映画か何かに", "なったような", "出てくる", "お姫様にでも"],
+        correct: 3
+    },
+    {
+        sentence: "昨日は「母の日」だったので、いつもおいしいお弁当を___ ___ ★ ___ 母が欲しがっていたアクセサリーをプレゼントした｡",
+        vi: "",
+        word: "★",
+        mean: "",
+        options: ["感謝の", "作ってくれて", "ありがとうという", "気持ちを込めて"],
+        correct: 0
+    },
+    {
+        sentence: "学生時代は、周りの人から、無理して人に合わせようと___ ___ ★ ___ することが多かった｡",
+        vi: "",
+        word: "★",
+        mean: "",
+        options: ["言えずに", "気にするあまり", "自分の本当の気持ちを", "自分がどう思われているかを"],
+        correct: 2
+    },
+
+    // ===== 問題9 =====
+    {
+        section: "問題9 次の文章を読んで、（48）から（51）に入る最もよいものを選びなさい｡",
+        sentence: "",
+        vi: "",
+        word: "（48）",
+        mean: "",
+        options: ["一方", "そして", "例えば", "ただし"],
+        correct: 2
+    },
+    {
+        sentence: "",
+        vi: "",
+        word: "（49）",
+        mean: "",
+        options: ["だけ", "も", "は", "こそ"],
+        correct: 1
+    },
+    {
+        sentence: "",
+        vi: "",
+        word: "（50）",
+        mean: "",
+        options: ["感動したことだ", "感動していた", "感動したはずだ", "感動してしまった"],
+        correct: 1
+    },
+    {
+        sentence: "",
+        vi: "",
+        word: "（51）",
+        mean: "",
+        options: ["やってみて", "やってみても", "やってみたら", "やってみたから"],
+        correct: 0
+    }
+];
+
+        // ===== FUNCTIONS =====
+
+        function highlight(text, word, mean) {
+            if (!text) return "";
+            return text.replace(word, `<span class="highlight" data-mean="${mean}">${word}</span>`);
+        }
+
+        function render() {
+            let html = "";
+            let currentSection = "";
+
+            data.forEach((q, i) => {
+                let number = i + 1;
+
+                if (q.section && q.section !== currentSection) {
+                    currentSection = q.section;
+                    html += `<h5 class="mt-4 mb-3">${q.section}</h5>`;
+                }
+
+                // reading 問題9
+                if (q.section && q.section.includes("問題9") && !html.includes("reading9")) {
+                    html += `
+      <div id="reading9" class="reading">
+        <b>以下は、留学生の作文である｡</b><br><br>
+      <b>農業ボランティアゴメス フランシスコ</b><br><br>
+                半年前、私は友達に誘われて、働き手が足りない農家を手伝う 「農業ボランティア」を 始
+            めた。過去にごみ拾いなどのボランティアはしたことがあったが、農業ボランティアの こと
+            は友達に聞くまで知らなかった。私は日本でいろいろな経験をしたいと思っていたの で、
+            参加することにした｡<br><br>
+            わたしが手伝っているのは南さんという農家だ。40代の夫婦がトマトやキャベツなど、い
+            ろいろな野菜を作っている。農作業は初めての経験だったが、農業は想像していた以上に知
+            識や経験が必要だと感じた。（ 48 ）、収穫のタイミングは、成長の具合や天気予報をもと
+            に、いつかいいかを判断しなければならない。また、トマトなどは成長の段階に応じて与え
+            る水の量を変えないとしっかり育たない。体力 （ 49 ） 必要で、農業は本当に大変な仕事
+            だ｡<br><br>
+            収穫したばかりのトマトを初めて食べさせてもらったときはあまりおいしくて（ 50 ）。収
+            穫したときの達成感や大切に育てた野菜を味わう喜びは、このボランティアに参加しなけれ
+            ば感じられなかっただろう｡<br><br>
+            農業として役に立てたことが嬉しかったし、多くの貴重な経験をすることができます｡
+            （ 51 ） 本当に良かったと思う。
+                </div>`;
+                }
+
+                html += `
+    <div class="card-q">
+      <div class="sentence" data-vi="${q.vi}">
+        <span class="number">${number}</span>
+        ${highlight(q.sentence, q.word, q.mean)}
+      </div>
+
+      <div class="row g-2">
+        ${q.options.map((opt, index) => `
+          <div class="col-12">
+            <label class="option d-flex align-items-center" id="q${i}_${index}">
+              <input type="radio" name="q${i}" value="${index}" onchange="checkOne(${i})">
+              ${index + 1}. ${opt}
+            </label>
+          </div>
+        `).join("")}
+      </div>
+    </div>
+    `;
+            });
+
+            document.getElementById("quiz").innerHTML = html;
+        }
+
+        function checkOne(i) {
+            let q = data[i];
+            let selected = document.querySelector(`input[name="q${i}"]:checked`);
+
+            q.options.forEach((_, index) => {
+                document.getElementById(`q${i}_${index}`)
+                    .classList.remove("correct", "wrong");
+            });
+
+            if (selected) {
+                let val = Number(selected.value);
+
+                q.options.forEach((_, index) => {
+                    let el = document.getElementById(`q${i}_${index}`);
+
+                    if (index === q.correct) el.classList.add("correct");
+                    if (index === val && index !== q.correct) el.classList.add("wrong");
+                });
+            }
+        }
+
+        function check() {
+            let wrongCount = 0;
+            let unanswered = 0;
+
+            data.forEach((q, i) => {
+                let selected = document.querySelector(`input[name="q${i}"]:checked`);
+                if (!selected) {
+                    unanswered++;
+                }
+
+                q.options.forEach((_, index) => {
+                    let el = document.getElementById(`q${i}_${index}`);
+                    el.classList.remove("correct", "wrong");
+
+                    if (index === q.correct) el.classList.add("correct");
+                    if (selected && index === Number(selected.value) && index !== q.correct) el.classList.add("wrong");
+                });
+
+                // Tăng số câu sai nếu đã chọn nhưng chọn sai
+                if (selected && Number(selected.value) !== q.correct) {
+                    wrongCount++;
+                }
+            });
+
+            // Hiển thị kết quả
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `
+        <b>Kết quả:</b> ${wrongCount} câu sai, ${unanswered} câu chưa làm, ${data.length - wrongCount - unanswered} câu đúng.
+    `;
+        }
+
+        function resetAll() {
+            document.querySelectorAll("input").forEach(e => e.checked = false);
+            document.querySelectorAll(".option").forEach(e => {
+                e.classList.remove("correct", "wrong");
+            });
+        }
+
+        render();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
